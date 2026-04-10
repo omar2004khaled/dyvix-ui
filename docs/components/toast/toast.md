@@ -17,7 +17,7 @@ The container holds & manages toast settings for all outgoing toasts
 - `duration`
   - : `number`. The default duration is `5000` ms. Controls how the duration that indivisual toast is showed.
 - `animation`
-  - : `string`. Controls the entrance animation of the indivisual toast. Defaults to `zoom`.
+  - : `string`. Controls the entrance animation of the indivisual toast. Defaults to `zoom`. See the [Animation Presets](/guide/animations) for a full list.
 
 ### Toast
 

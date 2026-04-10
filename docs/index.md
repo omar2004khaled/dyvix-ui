@@ -26,7 +26,7 @@ features:
   - title: Built-in Validation
     details: Config-driven validation presets for email, password, and more. Just pass a validation prop and you're done.
   - title: Zero Boilerplate
-    details: A fully animated, validated form modal in one component and a few lines of config with 9+ themes and counting.
+    details: A fully animated, validated form modal in one component and a few lines of config with 10+ themes and counting.
   - title: Open Source
     details: MIT licensed. Active contributor community with good first issues always open.
 ---

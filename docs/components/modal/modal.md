@@ -22,7 +22,7 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
 - `theme`
   - : `string`. Controls the design and the feel of the modal.
 - `animation`
-  - : `string`. Controls the entrance animation of the modal.
+  - : `string`. Controls the entrance animation of the modal. See the [Animation Presets](/guide/animations) for a full list.
 - `preset`
   - : `string`. A convenience attribute that populates the modal with predefined configuration. Using presets overrides elements attribute with modal common-uses.
 - `elements`

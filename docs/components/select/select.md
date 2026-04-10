@@ -18,7 +18,7 @@ A config-driven animated select component with support for normal and autocomple
 - `type`
   - : `string`. The type of the select component. Defaults to `select`.
 - `animation`
-  - : `string`. Controls the entrance animation of the select.
+  - : `string`. Controls the entrance animation of the select. See the [Animation Presets](/guide/animations) for a full list.
 - `Class`
   - : `string`. Contains a custom class for your select, allowing more control for the developer.
 - `placeholder`

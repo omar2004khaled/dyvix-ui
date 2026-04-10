@@ -19,13 +19,23 @@ export default defineConfig({
         text: 'Guide',
         items: [
           { text: 'Introduction', link: 'guide/introduction' },
-          { text: 'Quickstart', link: 'guide/quickstart' }
+          { text: 'Quickstart', link: 'guide/quickstart' },
+          { text: 'Animations', link: 'guide/animations' }
         ]
       },
       {
         text: 'Components',
         items: [
-          { text: 'Modal', link: 'components/modal/modal' },
+          {
+            text: 'Modal',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: 'components/modal/modal' },
+              { text: 'Animations', link: 'guide/animations' },
+              { text: 'Validations', link: 'components/modal/validation' },
+              { text: 'Presets', link: 'components/modal/presets' }
+            ]
+          },
           { text: 'Select', link: 'components/select/select' },
           { text: 'Toast', link: 'components/toast/toast' }
         ]
