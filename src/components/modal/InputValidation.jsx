@@ -138,6 +138,15 @@ export function ValidateInput(
   return { status: GaurdStatus.Success };
 }
 function validateElements(elements) {
+   const MAX_ROWS = 9;
+
+   if (elements.length > MAX_ROWS) {
+      console.warn(
+      `[Dyvix UI] Maximum of ${MAX_ROWS} rows allowed. Extra rows will be ignored.`
+   );
+
+   elements.splice(MAX_ROWS); // trims array IN-PLACE
+ }
   for (const element of elements) {
     const currentType =
       eleData.find((e) => e.element === element.type) ||
