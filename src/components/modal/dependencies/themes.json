@@ -62,7 +62,7 @@
   {
     "theme": "Midnight",
     "class": "dyvix-modal-midnight",
-    "default-animation": "glide",
+    "default-animation": "drift",
     "radiused": false
   }
 ]
