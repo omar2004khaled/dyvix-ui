@@ -14,7 +14,6 @@ export function DyvixToastItem({
   const [status, SetStatus] = React.useState('entering');
   const icons = { success: '✓', error: '✕', warning: '⚠', info: 'i' };
   const currentAnimation = animation
-  
     ? animationsData.find(
         (e) =>
           e.animation.trim().toLowerCase() === animation.trim().toLowerCase()
@@ -57,7 +56,10 @@ export function DyvixToastItem({
 
   return (
     <div className={Class} ref={toastRef}>
-      <span className={`dyvix-toast-title toast-${type.toLowerCase()}`}><span className='dyvix-toast-icon'>{icons[type.toLowerCase()]}</span> {type}</span>
+      <span className={`dyvix-toast-title toast-${type.toLowerCase()}`}>
+        <span className="dyvix-toast-icon">{icons[type.toLowerCase()]}</span>{' '}
+        {type}
+      </span>
       <span className="dyvix-toast-content">{message}</span>
     </div>
   );

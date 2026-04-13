@@ -51,6 +51,7 @@ function Modal({
   const [data, SetData] = React.useState({});
   const [errors, SetErrors] = React.useState({});
   const [visibility, SetVisibility] = React.useState(true);
+  const [status, SetStatus] = React.useState('entering');
   const fields = SerializeData(
     title,
     type,
@@ -73,7 +74,7 @@ function Modal({
     }
   }
   function handleModalClose() {
-    SetVisibility(false);
+    SetStatus('leaving');
     if (typeof onClose === 'function') {
       onClose();
     }
@@ -191,12 +192,22 @@ function Modal({
   useGSAP(() => {
     if (!modalRef.current || !currentAnimation) return;
     gsap.set(modalRef.current, { margin: dynamicMargin });
-    gsap.fromTo(modalRef.current, currentAnimation.from, {
-      ...currentAnimation.to,
-      duration: currentAnimation['default-duration'],
-      ease: currentAnimation.ease
-    });
-  }, [currentAnimation]);
+
+    if (status === 'entering') {
+      gsap.fromTo(modalRef.current, currentAnimation.from, {
+        ...currentAnimation.to,
+        duration: currentAnimation['default-duration'],
+        ease: currentAnimation.ease
+      });
+    } else {
+      gsap.fromTo(modalRef.current, currentAnimation.to, {
+        ...currentAnimation.from,
+        duration: currentAnimation['default-duration'],
+        ease: currentAnimation.ease,
+        onComplete: () => SetVisibility(false)
+      });
+    }
+  }, [currentAnimation, status]);
 
   return (
     <>
@@ -277,7 +288,12 @@ function Modal({
                       ariaAttributes['aria-required'] =
                         ariaProps['aria-required'];
                     }
-                    const options = Tag === 'select' || elementDef.tag === 'DynamicSelect' ? Array.isArray(field.options[0]) ? field.options[j]: field.options : [];
+                    const options =
+                      Tag === 'select' || elementDef.tag === 'DynamicSelect'
+                        ? Array.isArray(field.options[0])
+                          ? field.options[j]
+                          : field.options
+                        : [];
 
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
