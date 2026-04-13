@@ -13,7 +13,6 @@
     "type": "in",
     "default-duration": 1,
     "ease": "elastic.out(0.8, 0.6)",
-    "components": ["modal"],
     "from": { "scale": 0, "opacity": 0 },
     "to": { "scale": 1, "opacity": 1 }
   },
@@ -22,7 +21,6 @@
     "type": "in",
     "default-duration": 1,
     "ease": "power3.out",
-    "components": ["modal"],
     "from": { "scale": 1.15, "opacity": 0 },
     "to": { "scale": 1, "opacity": 1 }
   },
@@ -31,7 +29,6 @@
     "type": "in",
     "default-duration": 0.8,
     "ease": "power2.out",
-    "components": ["modal"],
     "from": { "scaleY": -0.1, "opacity": 0, "transformOrigin": "top center" },
     "to": { "scaleY": 1, "opacity": 1 }
   },
@@ -40,7 +37,6 @@
     "type": "in",
     "default-duration": 1,
     "ease": "power4.out",
-    "components": ["modal"],
     "from": { "x": -60, "skewX": 40, "opacity": 0 },
     "to": { "x": 0, "skewX": 0, "opacity": 1 }
   },
@@ -49,7 +45,6 @@
     "type": "in",
     "default-duration": 0.8,
     "ease": "elastic.out(0.6, 0.4)",
-    "components": ["modal"],
     "from": { "scale": 0.8, "opacity": 0, "filter": "blur(50px)" },
     "to": { "scale": 1, "opacity": 1, "filter": "blur(0px)" }
   },
@@ -58,7 +53,6 @@
     "type": "in",
     "default-duration": 0.8,
     "ease": "power2.out",
-    "components": ["modal"],
     "from": { "y": 80, "opacity": 0, "filter": "blur(35px)" },
     "to": { "y": 0, "opacity": 1, "filter": "blur(0px)" }
   },
@@ -67,7 +61,6 @@
     "type": "in",
     "default-duration": 0.9,
     "ease": "back.out(1.2)",
-    "components": ["modal"],
     "from": { "y": -150, "opacity": 0 },
     "to": { "y": 0, "opacity": 1 }
   },
@@ -76,7 +69,6 @@
     "type": "in",
     "default-duration": 0.5,
     "ease": "power2.out",
-    "components": ["modal"],
     "from": { "rotationY": 190, "opacity": 0 },
     "to": { "rotationY": 0, "opacity": 1 }
   },
@@ -85,7 +77,6 @@
     "type": "in",
     "default-duration": 1.2,
     "ease": "back.out(1.7)",
-    "components": ["modal"],
     "from": { "rotationX": -10, "opacity": 0, "scale": 0.9, "y": 30 },
     "to": { "rotationX": 0, "opacity": 1, "scale": 1, "y": 0 }
   },
@@ -94,7 +85,6 @@
     "type": "in",
     "default-duration": 0.97,
     "ease": "power3.inOut",
-    "components": ["modal"],
     "from": { "opacity": 0.1, "scale": 0.77, "y": 60 },
     "to": { "opacity": 1, "scale": 1, "y": 0 }
   }

@@ -14,7 +14,7 @@ function DynamicSelect({
   type = 'select',
   animation = 'fade',
   Class,
-  placeholder = 'Select...',
+  placeholder = '',
   ...props
 }) {
   type = type.includes('-') ? type.split('-')[1] : type;
