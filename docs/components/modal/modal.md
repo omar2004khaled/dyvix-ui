@@ -38,7 +38,7 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
     - `id`
       - : `string | string[]`. A Unique optional ID for indivisual fields, allowing more control for the developer. If the amount is greater than 1 this must be provided as an array of strings with length matching that of the amount.
     - `options`
-      - : `Array of Array[values]`. Required when type is `select`, `d-select`, and `autocomplete`. It provides selection data for the supported elements, the amount of sub-arrays must match the amount property. For example:
+      - : `Array of Array[values]`. Required when type is `select`, `d-select`, or `autocomplete`. It provides selection data for the supported elements, the amount of sub-arrays must match the amount property. For example:
 
         ```jsx
             {
@@ -55,7 +55,12 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
         ```
 
     - `validation`
-      - : `string | string[]`. Premade validation preset. If the amount is greater than 1 this must be provided as an array of strings with length matching that of the amount. See the [validators list](/components/modal/validation) for a full list.
+      - : `string | string[]`. Defines the validation logic of the field. If the amount is greater than 1 this must be provided as an array of strings with length matching that of the amount. Support built-in preset found in [validators list](/components/modal/validation) or custom patterns by using pattern-embeding prefix `$R`. Moreover, you can embed a custom error message using the | separator. For example:
+
+        ```jsx
+          amount: 3,
+          validation: ["email", "$R^\\d+$|Numbers only", DYVIX_MODAL_VALIDATION_PRESET.PASSWORD],
+        ```
 
 - `onSubmit`
   - : `function`. A callback function triggered upon form submission. It receives a single `data` object containing all input names along with their value.

@@ -23,3 +23,4 @@ Dyvix provides a wide range of themes. You can trigger these by passing the stri
 - `DYVIX_MODAL_THEME.SUNSET`: `'Sunset'`
 - `DYVIX_MODAL_THEME.OCEAN`: `'Ocean'`
 - `DYVIX_MODAL_THEME.FOREST`: `'Forest'`
+- `DYVIX_MODAL_THEME.MIDNIGHT`: `'Midnight'`

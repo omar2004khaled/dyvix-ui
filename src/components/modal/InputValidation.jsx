@@ -235,7 +235,7 @@ function validateElements(elements) {
     if(rules.length > element.amount) {
       return {
         status: GaurdStatus.Error,
-        error: `Validation overflow: maximum of 3 rules allowed.`
+        error: `Validation overflow: maximum of amount of ${element.amount} reached.`
       };
     }
 
