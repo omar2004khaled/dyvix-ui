@@ -1,6 +1,5 @@
 import {
   validType,
-  vaildThemes,
   validAnimations,
   eleData,
   validPreset,
@@ -13,6 +12,7 @@ import {
   allowsNull
 } from '../../utils/DyvixGuard';
 import { isValidRegex } from './dependencies/validator/validators';
+import { SJCManager, CACHETYPE } from '../../utils/Smart Json Caching/SJCManager';
 
 const defaultElement = {
   type: '!/',
@@ -48,7 +48,7 @@ export async function SerializeData(
   onSubmit,
   callback
 ) {
-  const validator = ValidateInput(
+  const validator = await ValidateInput(
     title,
     type,
     elements,
@@ -81,7 +81,7 @@ export async function SerializeData(
 
   return normalizedElements;
 }
-export function ValidateInput(
+export async function ValidateInput(
   title,
   type,
   elements,
@@ -90,7 +90,8 @@ export function ValidateInput(
   animation,
   Id,
   Class,
-  onSubmit
+  onSubmit,
+  callback
 ) {
   if (preset !== '!/') {
     if (!validPreset.includes(preset)) {
@@ -111,7 +112,8 @@ export function ValidateInput(
       error: 'Please provide a vaild animation.'
     };
   }
-  if (!vaildThemes.includes(theme)) {
+  const isTheme = await ValidatAndLoadTheme(theme, callback);
+  if (!isTheme) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild theme.'
@@ -321,7 +323,7 @@ async function ValidatAndLoadTheme(theme, callback) {
 
   callback((prev) => {
     if (prev.theme === theme) return prev;
-    return { ...prev, theme: theme };
+    return { ...prev, theme: res };
   });
   return res !== null;
 }

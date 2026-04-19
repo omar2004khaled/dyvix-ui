@@ -1,5 +1,4 @@
 import elementsData from './dependencies/elements.json';
-import themesData from './dependencies/themes.json';
 import DynamicSelect from '../select/SelectCompiler';
 import animationsData from '../animations.json';
 import validationData from './dependencies/validator/validators.json';
@@ -18,7 +17,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SerializeData } from './InputValidation';
 
-export const vaildThemes = themesData.map((e) => e.theme);
 export const validType = typesData.map((e) => e.type);
 export const validAnimations = animationsData.map((e) => e.animation);
 export const validPreset = presetData.map((e) => e.preset);
@@ -57,6 +55,7 @@ function Modal({
   const [errors, SetErrors] = React.useState({});
   const [visibility, SetVisibility] = React.useState(true);
   const [status, SetStatus] = React.useState('entering');
+  const [configs, SetConfig] = React.useState({});
   const [fields, SetFields] =  React.useState(null);
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
@@ -114,9 +113,7 @@ function Modal({
   const currentType = typesData.find(
     (e) => e.type.trim().toLowerCase() === type.trim().toLowerCase()
   );
-  const currentTheme = themesData.find(
-    (e) => e.theme.trim().toLowerCase() === theme.trim().toLowerCase()
-  );
+  const currentTheme = configs["theme"];
   const animationQuery =
     animation === '!/' ? currentTheme['default-animation'] : animation;
   const currentAnimation = animation
@@ -130,7 +127,7 @@ function Modal({
     (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
   );
   const serilaizedClass =
-    Class + ` ${currentTheme.class}` + ` ${currentType.class}`;
+    Class + ` ${currentTheme?.class}` + ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
   const heightMap = {
     1: '23rem',
@@ -144,7 +141,7 @@ function Modal({
     9: '53rem'
   };
   let idealSize = heightMap[fields?.length] || '26rem';
-  const geometryBuffer = currentTheme['radiused']
+  const geometryBuffer = currentTheme?.radiused
     ? (2.5 * fields?.length) / 3
     : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
@@ -162,7 +159,7 @@ function Modal({
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
   }
-
+  //console.log(configs)
   React.useEffect(()=> {    
     async function GetFields() {
       const data = await SerializeData(
@@ -174,7 +171,8 @@ function Modal({
         animation,
         Id,
         Class,
-        onSubmit
+        onSubmit,
+        SetConfig
       );
 
       console.log(data)
@@ -244,8 +242,8 @@ function Modal({
                 onClick={() => handleModalClose()}
                 aria-label="Close modal"
                 style={{
-                  top: currentTheme.radiused ? '2rem' : '1rem',
-                  right: currentTheme.radiused ? '9rem' : '1rem'
+                  top: currentTheme?.radiused ? '2rem' : '1rem',
+                  right: currentTheme?.radiused ? '9rem' : '1rem'
                 }}
               >
                 ✕

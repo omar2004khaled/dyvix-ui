@@ -28,8 +28,8 @@ export async function SJCManager(
     jsonclasskey
   );
   const key = generateCacheKey(2, component, utility);
-
-  if (layerThreeResult.CSS) {
+  if (layerThreeResult === null) return layerThreeResult;
+  if (layerThreeResult?.CSS) {
     InjectCSS(layerThreeResult.CSS, key);
   }
   return layerThreeResult.JSON;
