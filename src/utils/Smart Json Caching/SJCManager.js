@@ -14,12 +14,11 @@ export async function SJCManager(
   jsonclasskey = ''
 ) {
   let result = null;
-  const key = generateCacheKey(3, component, utility);
+  const key = generateCacheKey(component, utility);
   result = await cachelayerOne()
     jsonpath,
     csspath,
     type,
-    3,
     component,
     utility,
     jsonKey,
@@ -31,7 +30,6 @@ export async function SJCManager(
     jsonpath,
     csspath,
     type,
-    3,
     component,
     utility,
     jsonKey,
@@ -42,7 +40,6 @@ export async function SJCManager(
     jsonpath,
     csspath,
     type,
-    3,
     component,
     utility,
     jsonKey,
@@ -62,7 +59,6 @@ async function cachelayerThree(
   jsonpath,
   csspath,
   type,
-  layer,
   component,
   utility,
   jsonKey,
@@ -73,6 +69,71 @@ async function cachelayerThree(
   let rawCSS = null;
   let cssResult = null;
   let jsonResult = null;
+  let keys = [key + "_L1", key + "_L2", key + "_L3"];
+
+  if (localStorage.getItem(keys[2])) {
+    const cachedData = JSON.parse(localStorage.getItem(keys[2]));
+    JsonArray = cachedData.JSON;
+    rawCSS = cachedData.CSS;
+  } else {
+    const rawJSONText = await extractFile(jsonpath);
+    JsonArray = JSON.parse(rawJSONText);
+    if (type === CACHETYPE.CSS) {
+      rawCSS = await extractFile(csspath);
+    }
+  }
+  jsonResult = JsonArray.find((e) => e[utility] === jsonKey);
+  let value = {
+    ...(rawCSS !== null && { CSS: rawCSS }),
+    ...(JsonArray !== null && { JSON: JsonArray })
+  };
+
+  localStorage.setItem(keys[2], JSON.stringify(value));
+
+  if (!jsonResult) {
+    return null;
+  }
+
+  cssResult = await extractCSSClass(jsonResult[jsonclasskey], null, rawCSS);
+
+  let result = {
+    ...(cssResult !== null && { CSS: cssResult }),
+    ...(jsonResult !== null && { JSON: jsonResult })
+  };
+  
+  const rawL2Cache = localStorage.getItem(keys[1]);
+  const existingL2cache = rawL2Cache ? JSON.parse(rawL2Cache) : {};
+  const newL2cache ={...existingL2cache, [jsonKey]: result};
+  localStorage.setItem(keys[1], JSON.stringify(newL2cache));
+  
+  const rawL1Cache = localStorage.getItem(keys[0]);
+  const existingL1cache = rawL1Cache ? JSON.parse(rawL1Cache) : {};
+  const newL1cache ={...existingL1cache, [jsonKey]: {...result, expires: Date.now() + (30 * 24 * 60 * 60 * 1000)}};
+  localStorage.setItem(keys[0], JSON.stringify(newL1cache));
+
+  return result;
+}
+
+// Caches only the config ever used
+async function cachelayerTwo(
+  jsonpath,
+  csspath,
+  type,
+  component,
+  utility,
+  jsonKey,
+  jsonclasskey,
+  key
+) {
+
+  return null
+  let JsonArray = null;
+  let rawCSS = null;
+  let cssResult = null;
+  let jsonResult = null;
+
+  key += "_L2";
+  let cachedData = null;
 
   if (localStorage.getItem(key)) {
     const cachedData = JSON.parse(localStorage.getItem(key));
@@ -106,49 +167,10 @@ async function cachelayerThree(
   return result;
 }
 
-// Caches only the config ever used
-async function cachelayerTwo(
-  jsonpath,
-  csspath,
-  type,
-  layer,
-  component,
-  utility,
-  jsonKey,
-  jsonclasskey,
-  key
-) {
-
-return null
-  if (localStorage.getItem(key)) {
-    return JSON.parse(localStorage.getItem(key));
-  }
-
-  const rawJSONText = await extractFile(jsonpath);
-
-  const JsonArray = JSON.parse(rawJSONText);
-  const jsonResult = JsonArray.find((e) => e[utility] === jsonKey);
-  let cssResult = null;
-
-  if (type === CACHETYPE.CSS) {
-    cssResult = extractCSSClass(jsonResult[jsonclasskey], csspath);
-  }
-
-  let value = {
-    ...(cssResult !== null && { CSS: cssResult }),
-    ...(jsonResult !== null && { JSON: JSON.stringify(jsonResult) })
-  };
-
-  localStorage.setItem(key, JSON.stringify(value));
-
-  return JSON.stringify(value);
-}
-
 async function cachelayerOne(  
   jsonpath,
   csspath,
   type,
-  layer,
   component,
   utility,
   jsonKey,
@@ -173,8 +195,8 @@ async function extractFile(path) {
   }
 }
 
-function generateCacheKey(layer, component, utility) {
-  const key = `DYVIX_${VERSION}_${layer}_${component}_${utility}`;
+function generateCacheKey(component, utility) {
+  const key = `DYVIX_${VERSION}_${component}_${utility}`;
 
   return key;
 }
