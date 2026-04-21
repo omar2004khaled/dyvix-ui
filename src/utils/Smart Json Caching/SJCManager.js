@@ -52,7 +52,7 @@ export async function SJCManager(
 
   if (result === null) return result;
 
-  if (result?.CSS) {
+  if (result?.CSS !== undefined && result?.CSS !== null) {
     InjectCSS(result.CSS, key, instance);
   }
   return result.JSON;
@@ -244,7 +244,7 @@ function InjectCSS(csstext, Key, instance) {
     if (existing.textContent === csstext) return true;
 
     existing.textContent = csstext;
-    return;
+    return true;
   }
   const style = document.createElement('style');
   style.id = Key;

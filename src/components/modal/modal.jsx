@@ -120,7 +120,7 @@ function Modal({
   );
   const currentTheme = configs['theme'];
   const animationQuery =
-    animation === '!/' ? currentTheme['default-animation'] : animation;
+    animation === '!/' ? currentTheme?.['default-animation'] : animation;
   const currentAnimation = configs['animation']; // add default animation for this new update
   const currentPreset = configs['preset'];
   const serilaizedClass =
