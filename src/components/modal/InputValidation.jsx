@@ -1,5 +1,4 @@
-import { validType, eleData, validPreset, validRules } from './modal';
-import presetData from './dependencies/presets.json';
+import { validType, eleData, validRules } from './modal';
 import {
   EvaluateFailure,
   GaurdStatus,
@@ -17,8 +16,8 @@ const CacheMapping = {
     jsonpath: '../../components/animations.json',
     csspath: null
   },
-  presets: {
-    jsonpath: '../../.components/modal/dependencies/presets.json',
+  preset: {
+    jsonpath: '../../components/modal/dependencies/presets.json',
     csspath: null
   },
   types: {
@@ -48,6 +47,7 @@ const supportedTypes = [
   'tel',
   'checkbox'
 ];
+let config = null;
 
 export async function SerializeData(
   title,
@@ -79,21 +79,16 @@ export async function SerializeData(
   if (validator.status === GaurdStatus.Error) {
     return EvaluateFailure(validator.error, validator.status);
   }
-  elements =
-    preset !== '!/'
-      ? presetData.find(
-          (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
-        )?.['fields'] || elements
-      : elements;
+  const presetData = config.find((item) => item.preset);
+  const finalElements = preset !== '!/' ? presetData?.preset?.fields : elements;
   const normalizedElements = normalizeElements(
-    elements.map((ele) => ({ ...defaultElement, ...ele }))
+    finalElements?.map((ele) => ({ ...defaultElement, ...ele }))
   );
   const eleValidator = validateElements(normalizedElements);
 
   if (eleValidator.status === GaurdStatus.Error) {
     return EvaluateFailure(eleValidator.error, eleValidator.status);
   }
-
   return normalizedElements;
 }
 export async function ValidateInput(
@@ -109,16 +104,7 @@ export async function ValidateInput(
   callback,
   instance
 ) {
-  if (preset !== '!/') {
-    if (!validPreset.includes(preset)) {
-      return {
-        status: GaurdStatus.Error,
-        error: 'Please provide a valid preset.'
-      };
-    }
-  }
-
-  const [isAnimation, isTheme] = await Promise.all([
+  const [isAnimation, isTheme, isPreset] = await Promise.all([
     ValidatAndLoadJSON(
       CacheMapping,
       animation,
@@ -126,21 +112,41 @@ export async function ValidateInput(
       'animation',
       component
     ),
-    ValidatAndLoadJSON(CacheMapping, theme, callback, 'theme', component, instance)
+    ValidatAndLoadJSON(
+      CacheMapping,
+      theme,
+      callback,
+      'theme',
+      component,
+      instance
+    ),
+    ValidatAndLoadJSON(CacheMapping, preset, callback, 'preset', component)
   ]);
 
-  if (animation !== '!/' && !isAnimation && allowsNull(animation)) {
+  if (preset !== '!/') {
+    if (!isPreset.status) {
+      return {
+        status: GaurdStatus.Error,
+        error: 'Please provide a valid preset.'
+      };
+    }
+  }
+
+  if (animation !== '!/' && !isAnimation.status && allowsNull(animation)) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild animation.'
     };
   }
-  if (!isTheme) {
+  if (!isTheme.status) {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild theme.'
     };
   }
+
+  config = [isTheme.config, isAnimation.config, isPreset.config];
+
   if (onSubmit !== undefined && typeof onSubmit !== 'function') {
     return {
       status: GaurdStatus.Error,
@@ -166,15 +172,15 @@ export async function ValidateInput(
 
   return { status: GaurdStatus.Success };
 }
-function validateElements(elements) {
+export function validateElements(elements) {
   const MAX_ROWS = 9;
 
-  if (elements.length > MAX_ROWS) {
+  if (elements?.length > MAX_ROWS) {
     console.warn(
       `[Dyvix UI] Maximum of ${MAX_ROWS} rows allowed. Extra rows will be ignored.`
     );
 
-    elements.splice(MAX_ROWS); // trims array IN-PLACE
+    elements?.splice(MAX_ROWS); // trims array IN-PLACE
   }
   for (const element of elements) {
     const currentType =
@@ -299,8 +305,8 @@ function validateElements(elements) {
 
   return { status: GaurdStatus.Success };
 }
-function normalizeElements(elements) {
-  return elements.map((ele) => ({
+export function normalizeElements(elements) {
+  return elements?.map((ele) => ({
     ...ele,
     placeholder:
       typeof ele.placeholder === 'string' ? [ele.placeholder] : ele.placeholder,

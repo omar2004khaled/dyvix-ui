@@ -52,7 +52,7 @@ export async function SJCManager(
 
   if (result === null) return result;
 
-  if (result?.CSS) {
+  if (result?.CSS !== undefined && result?.CSS !== null) {
     InjectCSS(result.CSS, key, instance);
   }
   return result.JSON;
@@ -239,19 +239,19 @@ function InjectCSS(csstext, Key, instance) {
   if (instance === null) return false;
   Key = Key + `_${instance}`;
   const existing = document.getElementById(Key);
-  
+
   if (existing) {
     if (existing.textContent === csstext) return true;
 
     existing.textContent = csstext;
-    return;
-  };
+    return true;
+  }
   const style = document.createElement('style');
   style.id = Key;
   style.type = 'text/css';
   style.textContent = csstext;
   document.head.appendChild(style);
-   return true;
+  return true;
 }
 
 export async function ValidatAndLoadJSON(
@@ -265,7 +265,7 @@ export async function ValidatAndLoadJSON(
   if (!cacheMap) return false;
 
   const mapper = cacheMap[utilityKey];
-  let type = mapper['csspath'] !== null ? CACHETYPE.CSS : CACHETYPE.Default;
+  let type = mapper?.csspath !== null ? CACHETYPE.CSS : CACHETYPE.Default;
   const res = await SJCManager(
     mapper['jsonpath'],
     mapper['csspath'],
@@ -280,5 +280,6 @@ export async function ValidatAndLoadJSON(
     if (prev[utilityKey] === res) return prev;
     return { ...prev, [utilityKey]: res };
   });
-  return res !== null;
+
+  return { config: { [utilityKey]: res }, status: res !== null };
 }

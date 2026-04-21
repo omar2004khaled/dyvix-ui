@@ -2,7 +2,6 @@ import elementsData from './dependencies/elements.json';
 import DynamicSelect from '../select/SelectCompiler';
 import validationData from './dependencies/validator/validators.json';
 import typesData from './dependencies/types.json';
-import presetData from './dependencies/presets.json';
 import './dependencies/style/elements.css';
 import * as validatorsFunctions from './dependencies/validator/validators';
 import {
@@ -16,11 +15,15 @@ import {
 import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { SerializeData } from './InputValidation';
+import {
+  SerializeData,
+  normalizeElements,
+  validateElements
+} from './InputValidation';
+import { GaurdStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 
 export const validType = typesData.map((e) => e.type);
-export const validPreset = presetData.map((e) => e.preset);
 export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
@@ -117,11 +120,9 @@ function Modal({
   );
   const currentTheme = configs['theme'];
   const animationQuery =
-    animation === '!/' ? currentTheme['default-animation'] : animation;
+    animation === '!/' ? currentTheme?.['default-animation'] : animation;
   const currentAnimation = configs['animation']; // add default animation for this new update
-  const currentPreset = presetData.find(
-    (e) => e.preset.trim().toLowerCase() === preset.trim().toLowerCase()
-  );
+  const currentPreset = configs['preset'];
   const serilaizedClass =
     Class + ` ${currentTheme?.class}` + ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
@@ -176,11 +177,11 @@ function Modal({
 
     GetFields();
     return () => {
-      const key = `DYVIX_${Version["version"]}_Modal_theme_${instanceId}`
+      const key = `DYVIX_${Version['version']}_Modal_theme_${instanceId}`;
       const ele = document.getElementById(key);
-      if(ele) ele.remove();
+      if (ele) ele.remove();
     };
-  }, [theme]);
+  }, [theme, preset, elements, animation, title]);
 
   React.useEffect(() => {
     fields?.forEach((field) => {

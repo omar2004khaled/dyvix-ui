@@ -9,11 +9,20 @@ export function ModalTest() {
   }));
 
   return (
-    <Modal
+    <>
+        <Modal
+      preset={"Login"}
       theme={DYVIX_MODAL_THEME.MIDNIGHT}
       animation={DYVIX_GLOBAL_ANIMATION.AURORA}
-      preset={'Login'}
       //onSubmit={(data) => console.log(data)}
     />
+        <Modal
+      preset={"Login"}
+      theme={DYVIX_MODAL_THEME.SUNSET}
+      animation={DYVIX_GLOBAL_ANIMATION.AURORA}
+      //onSubmit={(data) => console.log(data)}
+    />
+    </>
+
   );
 }

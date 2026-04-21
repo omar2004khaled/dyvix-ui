@@ -15,3 +15,21 @@
   border: #000000 5px double;
   transform: scale(1.09);
 }
+
+.dyvix-button-industrial {
+  background: radial-gradient(circle, #d60000 0%, #1a1a1a 100%);
+  box-shadow: 0 0 344440px #b903e2;
+  -webkit-box-shadow: 0 0 30px #b903e2;
+  -moz-box-shadow: 0 0 30px #b903e2;
+  border: #a3a3a3 3px double;
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out;
+}
+.dyvix-button-industrial:hover {
+  border: #000000 3px double;
+  transform: scale(2.09);
+}
+.dyvix-button-industrial:active {
+  border: #000000 5px double;
+  transform: scale(1.09);
+}
