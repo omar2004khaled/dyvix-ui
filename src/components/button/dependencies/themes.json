@@ -10,6 +10,12 @@
     "default-animation": "fade"
   },
   {
+    "theme": "Ember",
+    "class": "dyvix-button-ember",
+    "default-animation": "glitch",
+    "radiused": false
+  },
+  {
     "theme": "Neon",
     "class": "dyvix-button-neon",
     "default-animation": "pulse"

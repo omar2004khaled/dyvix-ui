@@ -46,6 +46,52 @@
   transform: scale(0.9);
   border-radius: 5px;
 }
+.dyvix-button-ember {
+  border-radius: 10px;
+  background-color: #0f0a08;
+  border-bottom: #ff4500 3px solid;
+  box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -webkit-box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -moz-box-shadow:
+    0px 17px 12px -12px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  transition:
+    transform 0.5s ease-in-out,
+    0.4s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    -webkit-box-shadow 0.3s ease-in-out,
+    -moz-box-shadow 0.3s ease-in-out;
+}
+.dyvix-button-ember:hover {
+  border-bottom: #ff6b00 3.1px solid;
+  transform: scale(1.002);
+  box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -webkit-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -moz-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+}
+.dyvix-button-ember:active {
+  border-bottom: #3c200d 2px solid;
+  transform: scale(0.9);
+  box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -webkit-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -moz-box-shadow:
+    0px 17px 20px -12px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+}
 .dyvix-button-neon {
   background: #4deeea;
   background: radial-gradient(
