@@ -106,32 +106,28 @@
   padding: 10px;
   background-color: #1a1a1a;
 }
-.modal-btn {
+.dyvix-btn-shared {
   width: 10rem;
   height: 2.8rem;
-  margin: 0 auto;
-  margin-top: auto;
-  margin-bottom: 2rem;
-  border: 1px solid black;
-  border-radius: 3rem;
-  background-color: #0ea5e9;
   flex: 0;
   min-width: 10rem;
   min-height: 2.8rem;
-  cursor: pointer;
+}
+.dyvix-modal-wrapper .modal .dyvix-btn-wrapper {
+  margin: auto auto 2rem auto;
+  width: 10rem;
+  height: 2.8rem;
+  flex: 0;
+  min-width: 10rem;
+  min-height: 2.8rem;
   transition:
     transform 0.3s ease-in-out,
     background-color 0.2s ease-in-out,
     border 0.1s ease-in-out;
 }
-.modal-btn:hover {
-  transform: scale(1.03);
-  background-color: aquamarine;
-  border: 2px solid rgb(68, 85, 91);
-}
-.modal-btn:active {
-  background-color: #0ea5e9;
-  transform: scale(1.05);
+.modal-btn {
+  min-width: 10rem;
+  min-height: 2.8rem;
 }
 .modal-close-btn {
   position: absolute;
