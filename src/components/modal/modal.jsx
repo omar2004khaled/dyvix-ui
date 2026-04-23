@@ -22,6 +22,7 @@ import {
 } from './InputValidation';
 import { GaurdStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
+import DyvixButton from '../button/button';
 
 export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
@@ -391,9 +392,9 @@ function Modal({
               );
             })}
             {currentType.submit && (
-              <button className="modal-btn" onClick={() => handleSubmit()}>
+              <DyvixButton className="modal-btn" onClick={() => handleSubmit()} theme={theme.toLowerCase()}>
                 {currentType.submitLabel}
-              </button>
+              </DyvixButton>
             )}
           </div>
         </div>
