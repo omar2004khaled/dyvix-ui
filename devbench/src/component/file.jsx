@@ -5,6 +5,7 @@ export function FileTest() {
     <>
       <DyvixFile
         onUpload={(data) => console.log(data)}
+        multiple={true}
         animation={'bubble'}
         theme={DYVIX_MODAL_THEME.MIDNIGHT}
       >
