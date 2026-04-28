@@ -22,6 +22,11 @@
   {
     "theme": "Blade",
     "class": "dyvix-file-blade",
-    "radiused": false
+    "default-animation": "zoom"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-file-neon",
+    "default-animation": "pulse"
   }
 ]

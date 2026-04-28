@@ -134,7 +134,7 @@
 }
 .dyvix-file-blade p {
   color: #e2e8f0;
-  transition:   color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
 .dyvix-file-blade:hover {
   background-color: #0a0a0a;
@@ -146,4 +146,33 @@
 }
 .dyvix-file-blade:hover p {
   color: #ffffff;
+}
+.dyvix-file-neon {
+  background: #4deeea;
+  background: radial-gradient(
+    circle,
+    rgba(77, 238, 234, 1) 0%,
+    rgba(112, 186, 239, 1) 43%,
+    rgba(240, 0, 255, 1) 100%
+  );
+  -webkit-box-shadow: 0px 0px 64px 0px rgba(252, 46, 255, 0.6);
+  -moz-box-shadow: 0px 0px 64px 0px rgba(252, 46, 255, 0.6);
+  box-shadow: 0px 0px 64px 0px rgba(252, 46, 255, 0.6);
+  border-radius: 4rem;
+  transition: border-radius 0.2s ease-in-out,
+              transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.3s ease;
+}
+.dyvix-file-neon p {
+  color: #1b1d1d;
+  font-weight: 700;
+  transition: color 0.1s ease-in-out;
+}
+.dyvix-file-neon:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 80px 0px rgba(252, 46, 255, 0.8);
+}
+.dyvix-file-neon:hover p {
+  color: #ffffff;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
