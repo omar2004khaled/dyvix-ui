@@ -1,7 +1,7 @@
 ---
 title: Dyvix Select
 next:
-  text: 'Toast'
+  text: 'Toast Component'
   link: 'components/toast/toast'
 ---
 

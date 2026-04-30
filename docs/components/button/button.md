@@ -1,5 +1,9 @@
 ---
 title: Dyvix Button
+next:
+  text: 'File Component'
+  link: 'components/file/file'
+---
 ---
 
 # Dyvix Button
