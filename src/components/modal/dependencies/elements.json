@@ -6,7 +6,6 @@
     "default-class": "modal-text",
     "aria": {
       "role": "textbox",
-      "aria-required": false,
       "aria-label": ""
     },
     "inherited-element": ["email", "password", "search", "url", "tel"],
@@ -31,7 +30,6 @@
     "default-class": "modal-select",
     "aria": {
       "role": "combobox",
-      "aria-required": false,
       "aria-label": ""
     },
     "supports-placeholder": true,
@@ -47,7 +45,6 @@
     "default-class": "modal-DynamicSelect",
     "aria": {
       "role": "combobox",
-      "aria-required": false,
       "aria-label": ""
     },
     "inherited-element": ["autocomplete"],
@@ -65,7 +62,6 @@
     "default-class": "modal-checkbox",
     "aria": {
       "role": "checkbox",
-      "aria-required": false,
       "aria-label": ""
     },
     "supports-placeholder": false,
