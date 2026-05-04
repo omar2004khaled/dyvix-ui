@@ -8,16 +8,8 @@ const __dirname = path.dirname(__filename);
 GenerateConstants(
   './src/components/modal/dependencies/themes.json',
   'theme',
-  'modal',
-  'entry',
-  '',
-  '* @deprecated Use DYVIX_GLOBAL_THEME instead.\n* This will be removed in V0.3.0.'
-);
-GenerateConstants(
-  './src/components/modal/dependencies/themes.json',
-  'theme',
   'global',
-  'post'
+  'entry'
 );
 GenerateConstants(
   './src/components/modal/dependencies/types.json',
