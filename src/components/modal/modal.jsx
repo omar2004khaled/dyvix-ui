@@ -306,7 +306,8 @@ function Modal({
                           ? field.options[j]
                           : field.options
                         : [];
-
+                    const fieldError = errors[name];
+                    const ErrorId = `${id ? id: field.placeholder[j]}-error`;
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
                       name: name,
@@ -329,9 +330,11 @@ function Modal({
                         elements: options,
                         animation: '!/',
                         className: 'modal-element'
+                      }),
+                      ...(ErrorId && {
+                        'aria-describedby': ErrorId 
                       })
                     };
-                    const fieldError = errors[name];
 
                     return (
                       <div className="dyvix-field-wrapper" key={name}>
@@ -383,7 +386,7 @@ function Modal({
                             }
                           />
                         )}
-                        <span className="dyvix-error-text">{fieldError}</span>
+                        <span className="dyvix-error-text" id={ErrorId}>{fieldError}</span>
                       </div>
                     );
                   })}

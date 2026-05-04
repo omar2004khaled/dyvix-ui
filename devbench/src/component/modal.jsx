@@ -14,13 +14,13 @@ export function ModalTest() {
       Id="register-modal"
       className="modalsss"
       theme={DYVIX_MODAL_THEME.SUNSET}
-      preset={'Register'}
+      //preset={'Register'}
       type="auth"
       elements={[
         {
           type: 'text',
           placeholder: ['First Name', 'Last Name'],
-          id: 'name',
+          id: ['name'],
           name: ['firstName', 'lastName'],
           className: 'ex-text',
           amount: 2
