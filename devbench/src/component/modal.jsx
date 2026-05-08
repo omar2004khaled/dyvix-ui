@@ -10,11 +10,11 @@ export function ModalTest() {
 
   return (
     <Modal
-     // title="Register"
+      title="Register"
       Id="register-modal"
       className="modalsss"
       theme={DYVIX_GLOBAL_THEME.FROST}
-      preset={'ResetPassword'}
+    //  preset={'ResetPassword'}
       type="auth"
       elements={[
         {
@@ -29,7 +29,7 @@ export function ModalTest() {
         {
           type: 'password',
           placeholder: 'Confirm Password',
-          validation: 'password',
+          validation: 'mandatory',
           id: 'confirm-password',
           name: 'confirmPassword',
           amount: 1,

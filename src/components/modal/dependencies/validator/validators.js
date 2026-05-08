@@ -16,7 +16,6 @@ export function ExecuteValidator(value, validators) {
 }
 
 export function ExecuteRegex(value, Rgx, errorMsg = 'Invalid format') {
-  console.log(Rgx);
   const Regex = new RegExp(Rgx);
   return { status: Regex.test(value), error: errorMsg };
 }
@@ -66,5 +65,9 @@ const VALIDATORS_REGISTERY = {
   isURL: (value) => ({
     status: /^(https?:\/\/)?([\w\d\-_]+\.)+[\w\d\-_]+(\/.*)?$/.test(value),
     error: 'Please enter a valid URL (e.g., https://example.com).'
+  }),
+  isRequired: (value, options = {}) => ({
+    status: value !== null && value !== undefined && String(value).trim().length > 0,
+    error: 'This field is required.'
   })
 };
