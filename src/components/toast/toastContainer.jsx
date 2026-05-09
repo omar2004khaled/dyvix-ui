@@ -1,4 +1,5 @@
 import './dependencies/style/style.css';
+import './dependencies/style/positions.css';
 import positionData from './dependencies/positions.json';
 import TypesData from './dependencies/types.json';
 import animationsData from '../animations.json';
