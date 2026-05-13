@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import path from 'path';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -18,7 +19,16 @@ export default defineConfig({
         content: 'Beautiful by default, customizable by design.'
       }
     ]
-  ],
+  ],vite: {
+    resolve: {
+      alias: {
+        'dyvix-ui': path.resolve(__dirname, '../../src/index') 
+      }
+    },
+    optimizeDeps: {
+      exclude: ['dyvix-ui']
+    }
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 

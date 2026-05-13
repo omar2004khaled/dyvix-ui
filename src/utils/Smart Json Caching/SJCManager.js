@@ -212,7 +212,6 @@ async function extractFile(path) {
   }
 
   let content = null;
-
   if (typeof CSS_LIBRARY !== 'undefined' && path.endsWith('.css')) {
     content = CSS_LIBRARY[path];
   } 
@@ -220,12 +219,12 @@ async function extractFile(path) {
   if (typeof JSON_LIBRARY !== 'undefined' && path.endsWith('.json')) {
     content = JSON_LIBRARY[path];
   }
-  
   if(!content)
   {
+    console.log("fail")
     // fallback
     try {
-      const module = await import(/* @vite-ignore */ `${path}?raw`);
+      const module = await fetch(`${path}?raw`);
       content =  module.default || module;
     } catch (error) {
       console.warn(`DyvixUI: Content not found at ${path}`);

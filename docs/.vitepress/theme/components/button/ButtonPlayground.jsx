@@ -1,4 +1,4 @@
-import { DyvixButton } from 'dyvix-ui';
+import {DyvixButton} from 'dyvix-ui';
 import Wrapper from '../Wrapper';
 import React from 'react';
 import { DYVIX_GLOBAL_THEME, DYVIX_GLOBAL_ANIMATION } from 'dyvix-ui';
