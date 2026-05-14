@@ -6,13 +6,16 @@ import modalPresetsJSON from '../../components/modal/dependencies/presets.json?r
 import animationsJSON from '../../components/animations.json?raw';
 import fileThemesJSON from '../../components/file/dependencies/themes.json?raw';
 import fileThemesCSS from '../../components/file/dependencies/style/themes.css?raw';
+import inputTypesJSON from '../../components/input/dependencies/types.json?raw';
+
 
 export const JSON_LIBRARY = {
   '../../components/button/dependencies/themes.json': buttonThemesJSON,
   '../../components/modal/dependencies/themes.json': modalThemesJSON,
   '../../components/modal/dependencies/presets.json': modalPresetsJSON,
   '../../components/animations.json': animationsJSON,
-  '../../components/file/dependencies/themes.json': fileThemesJSON
+  '../../components/file/dependencies/themes.json': fileThemesJSON,
+  '../../components/input/dependencies/types.json': inputTypesJSON
 };
 
 export const CSS_LIBRARY = {
