@@ -21,7 +21,13 @@ const CacheMapping = {
   }
 };
 
-export async function Validateinput(animation, theme, type, callback, instance) {
+export async function Validateinput(
+  animation,
+  theme,
+  type,
+  callback,
+  instance
+) {
   let normalizedAnimation = animation?.trim().toLowerCase();
   let normalizedType = type?.trim().toLowerCase();
 
@@ -33,7 +39,13 @@ export async function Validateinput(animation, theme, type, callback, instance) 
       'animation',
       component
     ),
-    ValidatAndLoadJSON(CacheMapping, normalizedType, callback, 'type', component)
+    ValidatAndLoadJSON(
+      CacheMapping,
+      normalizedType,
+      callback,
+      'type',
+      component
+    )
   ]);
 
   if (!isAnimation.status && !allowsNull(normalizedAnimation)) {

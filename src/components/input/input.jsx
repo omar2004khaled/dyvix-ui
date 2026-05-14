@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Version from '../../../package.json';
-import './dependencies/style/style.css'
+import './dependencies/style/style.css';
 import React from 'react';
 import { Validateinput } from './validation';
 
@@ -17,16 +17,15 @@ function DyvixInput({
   onChange,
   ...rest
 }) {
-
   const inputRef = React.useRef(null);
   const [configs, SetConfig] = React.useState({});
   const instanceId = React.useId();
-  
-    React.useEffect(() => {
+
+  React.useEffect(() => {
     async function GetFields() {
-      const data = await Validateinput (
+      const data = await Validateinput(
         animation,
-        "",
+        '',
         type,
         SetConfig,
         instanceId
@@ -48,28 +47,25 @@ function DyvixInput({
     className: inputClasses,
     type: currentType?.type,
     style: {
-      ...(background && {background: background}),
-      ...(color && {color: color}),
+      ...(background && { background: background }),
+      ...(color && { color: color }),
       ...style
     }
-  }
-  
+  };
+
   function handleBlur(e) {
-    if(typeof onBlur === "function")
-    {
-      onBlur(e)
+    if (typeof onBlur === 'function') {
+      onBlur(e);
     }
   }
   function handleFocus(e) {
-    if(typeof onFocus === "function")
-    {
-      onFocus(e)
+    if (typeof onFocus === 'function') {
+      onFocus(e);
     }
   }
   function handleChange(e) {
-    if(typeof onChange === "function")
-    {
-      onChange(e)
+    if (typeof onChange === 'function') {
+      onChange(e);
     }
   }
 
@@ -84,10 +80,15 @@ function DyvixInput({
   }, [currentAnimation]);
 
   return (
-    <div className='dyvix-input-wrapper' ref={inputRef} {...rest}>
-      <input {...props} onFocus={(e)=> handleFocus(e)} onBlur={(e)=> handleBlur(e)} onChange={(e) => handleChange(e)}></input>
+    <div className="dyvix-input-wrapper" ref={inputRef} {...rest}>
+      <input
+        {...props}
+        onFocus={(e) => handleFocus(e)}
+        onBlur={(e) => handleBlur(e)}
+        onChange={(e) => handleChange(e)}
+      ></input>
     </div>
-  )
+  );
 }
 
-export default DyvixInput
+export default DyvixInput;

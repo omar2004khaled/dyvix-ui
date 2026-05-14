@@ -8,7 +8,6 @@ import fileThemesJSON from '../../components/file/dependencies/themes.json?raw';
 import fileThemesCSS from '../../components/file/dependencies/style/themes.css?raw';
 import inputTypesJSON from '../../components/input/dependencies/types.json?raw';
 
-
 export const JSON_LIBRARY = {
   '../../components/button/dependencies/themes.json': buttonThemesJSON,
   '../../components/modal/dependencies/themes.json': modalThemesJSON,
