@@ -15,7 +15,6 @@ export async function SJCManager(
   jsonclasskey = '',
   instance
 ) {
-
   let result = null;
   const key = generateCacheKey(component, utility);
   result = await cachelayerOne(
@@ -82,7 +81,8 @@ async function cachelayerThree(
     rawCSS = cachedData.CSS;
   } else {
     const rawJSONText = await extractFile(jsonpath);
-    JsonArray = typeof rawJSONText === 'string' ? JSON.parse(rawJSONText) : rawJSONText;
+    JsonArray =
+      typeof rawJSONText === 'string' ? JSON.parse(rawJSONText) : rawJSONText;
     if (type === CACHETYPE.CSS) {
       rawCSS = await extractFile(csspath);
     }
@@ -198,7 +198,7 @@ async function cachelayerOne(
 
 async function extractFile(path) {
   if (!path) {
-    console.warn("DyvixUI: Invalid path");
+    console.warn('DyvixUI: Invalid path');
     return null;
   }
 

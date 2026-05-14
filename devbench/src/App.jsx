@@ -9,6 +9,7 @@ import { SelectTest } from './component/select';
 import { ToastTest } from './component/toast';
 import { ButtonTest } from './component/button';
 import { FileTest } from './component/file';
+import { InputTest } from './component/input';
 import dyvixLogo from './assets/logo.png';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -19,7 +20,8 @@ const Links = {
   Toast: ToastTest,
   Select: SelectTest,
   Button: ButtonTest,
-  File: FileTest
+  File: FileTest,
+  Input: InputTest
 };
 
 function App() {
@@ -35,7 +37,7 @@ function App() {
   }
 
   localStorage.clear(); // Never do in production. Only in development env.
-  clear()
+  clear();
   useGSAP(() => {
     let tl = gsap.timeline();
 

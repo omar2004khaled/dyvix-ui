@@ -19,7 +19,6 @@ const CacheMapping = {
 
 export async function Validatefile(animation, theme, callback, instance) {
   let normalizedAnimation = animation?.trim().toLowerCase();
-  console.log(theme)
   const normalizedTheme =
     theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
 

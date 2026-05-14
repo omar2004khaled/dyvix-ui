@@ -19,10 +19,11 @@ export default defineConfig({
         content: 'Beautiful by default, customizable by design.'
       }
     ]
-  ],vite: {
+  ],
+  vite: {
     resolve: {
       alias: {
-        'dyvix-ui': path.resolve(__dirname, '../../src/index') 
+        'dyvix-ui': path.resolve(__dirname, '../../src/index')
       }
     },
     optimizeDeps: {

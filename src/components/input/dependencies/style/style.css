@@ -1,0 +1,42 @@
+.dyvix-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  max-width: 250px;
+  width: 100%;
+}
+.dyvix-input {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 2px solid rgb(26, 27, 27);
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  min-width: 50px;
+  padding: 0 12px;
+  color: #b9f7ff;
+  outline: none;
+
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s cubic-bezier(0.2, 0.2, 0.65, 0.3);
+}
+.dyvix-input:hover {
+  border: 2px solid rgb(194, 239, 255);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(185, 247, 255, 0.15);
+}
+.dyvix-input:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgb(168, 231, 254);
+
+  border-color: #b9f7ff;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(185, 247, 255, 0.2);
+}
+.dyvix-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+}

@@ -7,4 +7,4 @@ export default {
   enhanceApp({ app }) {
     app.component('ButtonPlayground', ButtonPlayground);
   }
-}
+};
