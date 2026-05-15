@@ -47,9 +47,60 @@
   border: 1px solid seagreen;
   text-align: center;
   border-radius: 2rem;
+  width: fit-content;
+  padding: 5px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.playground-select:hover {
+  border-color: rgba(11, 59, 51, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(131, 195, 203, 0.2);
 }
 .dyvix-render-zone {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: fit-content;
+}
+.playground-color {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  width: 2.9rem;
+  height: 2.2rem;
+  cursor: pointer;
+  background: #1a1b1b;
+  padding: 3px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.playground-color::-webkit-color-swatch {
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.playground-color::-moz-color-swatch {
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.playground-color:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(185, 247, 255, 0.2);
+}
+
+.playground-color:active {
+  transform: translateY(0px);
+  filter: brightness(0.8);
 }

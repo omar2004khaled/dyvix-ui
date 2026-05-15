@@ -16,14 +16,34 @@ export default function ButtonPlayground() {
       type: 'select',
       options: DYVIX_GLOBAL_ANIMATION,
       current: DYVIX_GLOBAL_ANIMATION.BUBBLE
+    },
+    {
+      utility: 'background',
+      type: 'color',
+      current: null
+    },
+    {
+      utility: 'color',
+      type: 'color',
+      current: null
     }
   ]);
 
   const theme = config.find((e) => e['utility'] === 'theme').current;
+  const animation = config.find((e) => e['utility'] === 'animation').current;
+  const background = config.find((e) => e['utility'] === 'background').current;
+  const color = config.find((e) => e['utility'] === 'color').current;
 
+  const probs = {
+    ...(theme && {theme: theme}),
+    ...(animation && {animation: animation}),
+    ...(background && {background: background}),
+    ...(color && {color: color}),
+
+  }
   return (
     <Wrapper componentConfig={config} componentCallback={setConfig}>
-      <DyvixButton onClick={() => console.log('clicked')} theme={theme}>
+      <DyvixButton onClick={() => console.log('clicked')} {...probs}>
         Submit
       </DyvixButton>
     </Wrapper>
