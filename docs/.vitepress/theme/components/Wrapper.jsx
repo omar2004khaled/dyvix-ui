@@ -10,22 +10,29 @@ export default function Wrapper({
   tag,
   imports
 }) {
+  const [snippet, setSnippet] = React.useState('');
+  const [copied, setCopied] = React.useState(null);
 
-  const [snippet, setSnippet] = React.useState("");
-
+  function handleCopy() {
+    navigator.clipboard.writeText(snippet);
+    setCopied(snippet);
+    setTimeout(() => setCopied(null), 2000);
+  }
   React.useEffect(() => {
     let curr = `<${tag}\n`;
-    for(const ele of componentConfig)
-    {
-      if(ele.utility === "children" || ele.type === "children") continue;
-      const formattedVal = ele.format === 'string'  ? `"${ele.current}"` : `{${ele.current}}`;
+    for (const ele of componentConfig) {
+      if (ele.utility === 'children' || ele.type === 'children') continue;
+      const formattedVal =
+        ele.format === 'string' ? `"${ele.current}"` : `{${ele.current}}`;
       curr += ele.current ? `${ele.utility}=${formattedVal}\n` : '';
     }
-    curr += '>'
-    const children = componentConfig.find((ele) => ele.utility === "children" || ele.type === "children");
-    curr += children.current ? `\n${children.current}\n</${tag}>`: '';
-    setSnippet(highlight(curr));
-  }, [componentConfig])
+    curr += '>';
+    const children = componentConfig.find(
+      (ele) => ele.utility === 'children' || ele.type === 'children'
+    );
+    curr += children.current ? `\n${children.current}\n</${tag}>` : '';
+    setSnippet(curr);
+  }, [componentConfig]);
   return (
     <>
       <div className="dyvix-playground-wrapper">
@@ -55,15 +62,23 @@ export default function Wrapper({
                   ))}
                 </select>
               );
-            }
-            else if (ele.type = "color")
-            {
-              return <input key={i} type='color' className="playground-color" onChange={(e) => 
-                componentCallback((prev) => prev.map((item) => item.utility === ele.utility
-                ? {...item, current: e.target.value}
-                : item  
-              ))
-              }></input>
+            } else if ((ele.type = 'color')) {
+              return (
+                <input
+                  key={i}
+                  type="color"
+                  className="playground-color"
+                  onChange={(e) =>
+                    componentCallback((prev) =>
+                      prev.map((item) =>
+                        item.utility === ele.utility
+                          ? { ...item, current: e.target.value }
+                          : item
+                      )
+                    )
+                  }
+                ></input>
+              );
             }
             return null;
           })}
@@ -81,9 +96,10 @@ export default function Wrapper({
           })}
         </div>
 
-        <div className='dyvix-preview-snippet'>
+        <div className="dyvix-preview-snippet">            
+          <button onClick={handleCopy} className='dyvix-preview-button'>{copied ?'Copied': 'Copy'}</button>
           <pre>
-            <code dangerouslySetInnerHTML={{ __html: snippet }} />
+            <code dangerouslySetInnerHTML={{ __html: highlight(snippet) }} />
           </pre>
         </div>
       </div>

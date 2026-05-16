@@ -54,7 +54,7 @@
 .playground-select:hover {
   border-color: rgba(11, 59, 51, 0.3);
   transform: translateY(-1px);
-  box-shadow: 
+  box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.5),
     0 4px 10px rgba(0, 0, 0, 0.4),
     0 0 8px rgba(131, 195, 203, 0.2);
@@ -76,7 +76,7 @@
   background: #1a1b1b;
   padding: 3px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.5),
     0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -94,7 +94,7 @@
 .playground-color:hover {
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
-  box-shadow: 
+  box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.5),
     0 4px 10px rgba(0, 0, 0, 0.4),
     0 0 8px rgba(185, 247, 255, 0.2);
@@ -104,20 +104,37 @@
   transform: translateY(0px);
   filter: brightness(0.8);
 }
-.dyvix-preview-snippet > pre {
+.dyvix-preview-snippet {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   background-color: #161618;
+}
+.dyvix-preview-snippet > pre {
   padding: 2px;
-  font-size: 105%;  
+  font-size: 105%;
   line-height: 1.6;
-
 }
 .dyvix-preview-snippet {
-  --sh-entity: #ADA8FF;
+  --sh-entity: #ada8ff;
   --sh-identifier: #d1d1d1;
   --sh-sign: #b9f7ff;
   --sh-string: #ffe685;
   --sh-keyword: #ff5f85;
   --sh-comment: #6272a4;
   --sh-property: #7ee0ff;
+}
+.dyvix-preview-button {
+  position: absolute;
+  right: 1.5rem;
+  color: aliceblue;
+  width: 6rem;
+  height: 2.5rem;
+  border: 1px transparent solid;
+}
+.dyvix-preview-button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.5),
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(185, 247, 255, 0.2);
 }
