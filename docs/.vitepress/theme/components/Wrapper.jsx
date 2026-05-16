@@ -1,23 +1,36 @@
 import React from 'react';
 import './style.css';
 import ButtonPlayground from './button/ButtonPlayground';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import { highlight } from 'sugar-high';
 
 export default function Wrapper({
   children,
   componentConfig,
-  componentCallback
+  componentCallback,
+  tag,
+  imports
 }) {
 
+  const [snippet, setSnippet] = React.useState("");
+
   React.useEffect(() => {
-    const curr = reactElementToJSXString(children);
-    setSnippet(curr);
+    let curr = `<${tag}\n`;
+    for(const ele of componentConfig)
+    {
+      if(ele.utility === "children" || ele.type === "children") continue;
+      const formattedVal = ele.format === 'string'  ? `"${ele.current}"` : `{${ele.current}}`;
+      curr += ele.current ? `${ele.utility}=${formattedVal}\n` : '';
+    }
+    curr += '>'
+    const children = componentConfig.find((ele) => ele.utility === "children" || ele.type === "children");
+    curr += children.current ? `\n${children.current}\n</${tag}>`: '';
+    setSnippet(highlight(curr));
   }, [componentConfig])
   return (
     <>
       <div className="dyvix-playground-wrapper">
         <div className="dyvix-hud-overlay">
-          {componentConfig.map((ele) => {
+          {componentConfig.map((ele, i) => {
             if (ele.type === 'select') {
               return (
                 <select
@@ -45,7 +58,7 @@ export default function Wrapper({
             }
             else if (ele.type = "color")
             {
-              return <input type='color' className="playground-color" onChange={(e) => 
+              return <input key={i} type='color' className="playground-color" onChange={(e) => 
                 componentCallback((prev) => prev.map((item) => item.utility === ele.utility
                 ? {...item, current: e.target.value}
                 : item  
@@ -66,6 +79,12 @@ export default function Wrapper({
               {}
             )
           })}
+        </div>
+
+        <div className='dyvix-preview-snippet'>
+          <pre>
+            <code dangerouslySetInnerHTML={{ __html: snippet }} />
+          </pre>
         </div>
       </div>
     </>

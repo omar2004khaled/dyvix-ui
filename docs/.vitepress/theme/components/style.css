@@ -104,3 +104,20 @@
   transform: translateY(0px);
   filter: brightness(0.8);
 }
+.dyvix-preview-snippet > pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background-color: #161618;
+  padding: 2px;
+  font-size: 105%;  
+  line-height: 1.6;
+
+}
+.dyvix-preview-snippet {
+  --sh-entity: #ADA8FF;
+  --sh-identifier: #d1d1d1;
+  --sh-sign: #b9f7ff;
+  --sh-string: #ffe685;
+  --sh-keyword: #ff5f85;
+  --sh-comment: #6272a4;
+  --sh-property: #7ee0ff;
+}

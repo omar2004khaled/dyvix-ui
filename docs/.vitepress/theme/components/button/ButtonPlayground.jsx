@@ -9,23 +9,33 @@ export default function ButtonPlayground() {
       utility: 'theme',
       type: 'select',
       options: DYVIX_GLOBAL_THEME,
-      current: DYVIX_GLOBAL_THEME.OCEAN
+      current: DYVIX_GLOBAL_THEME.OCEAN,
+      format: "string"
     },
     {
       utility: 'animation',
       type: 'select',
       options: DYVIX_GLOBAL_ANIMATION,
-      current: DYVIX_GLOBAL_ANIMATION.BUBBLE
+      current: DYVIX_GLOBAL_ANIMATION.BUBBLE,
+      format: "string"
     },
     {
       utility: 'background',
       type: 'color',
-      current: null
+      current: null,
+      format: "string"
     },
     {
       utility: 'color',
       type: 'color',
-      current: null
+      current: null,
+      format: "string"
+    },
+    {
+      utility: 'children',
+      type: 'children',
+      current: "Submit",
+      format: "string"
     }
   ]);
 
@@ -42,7 +52,7 @@ export default function ButtonPlayground() {
 
   }
   return (
-    <Wrapper componentConfig={config} componentCallback={setConfig}>
+    <Wrapper componentConfig={config} componentCallback={setConfig} tag={"DyvixButton"}>
       <DyvixButton onClick={() => console.log('clicked')} {...probs}>
         Submit
       </DyvixButton>
