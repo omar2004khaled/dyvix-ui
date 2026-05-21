@@ -1,5 +1,8 @@
 ---
 title: Dyvix File
+next:
+  text: 'Input Component'
+  link: 'components/input/input'
 ---
 
 # Dyvix File

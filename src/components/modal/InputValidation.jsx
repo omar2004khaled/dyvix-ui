@@ -37,13 +37,12 @@ const defaultElement = {
   amount: 1
 };
 
-
 let supportedTypes = null;
 let config = null;
 
 async function getSupportedElements() {
   const { DYVIX_MODAL_ELEMENT } = await import('../../constants.js');
-  return Object.values(DYVIX_MODAL_ELEMENT)
+  return Object.values(DYVIX_MODAL_ELEMENT);
 }
 export async function SerializeData(
   title,
@@ -71,7 +70,7 @@ export async function SerializeData(
     callback,
     instance
   );
-  supportedTypes= await getSupportedElements();
+  supportedTypes = await getSupportedElements();
 
   if (validator.status === GaurdStatus.Error) {
     return EvaluateFailure(validator.error, validator.status);

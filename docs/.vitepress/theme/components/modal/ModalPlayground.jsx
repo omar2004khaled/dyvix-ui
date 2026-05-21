@@ -174,7 +174,7 @@ export default function ModalPlayground() {
       componentCallback={setConfig}
       tag={'Modal'}
     >
-      <Modal onClick={() => console.log('clicked')} {...probs}></Modal>
+      <Modal onClick={() => console.log('clicked')} {...probs} />
     </Wrapper>
   );
 }
