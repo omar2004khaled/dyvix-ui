@@ -60,13 +60,13 @@ export default function InputPlayground() {
     {
       utility: 'background',
       type: 'color',
-      current: '#ffffff',
+      current: '#32374e',
       format: 'string'
     },
     {
       utility: 'color',
       type: 'color',
-      current: '#111827',
+      current: undefined,
       format: 'string'
     }
   ]);
