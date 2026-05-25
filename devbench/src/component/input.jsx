@@ -5,7 +5,7 @@ export function InputTest() {
     <>
       <DyvixInput
         animation={DYVIX_GLOBAL_ANIMATION.AURORA}
-        theme={DYVIX_GLOBAL_THEME.SINGULARITY}
+        theme={DYVIX_GLOBAL_THEME.INDUSTRIAL}
         type="text"
         placeholder={'Enter your name'}
       />
