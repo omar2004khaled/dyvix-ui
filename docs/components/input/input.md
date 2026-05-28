@@ -36,6 +36,10 @@ A config-driven animated input component with support for default coloring style
   - : `function`. A callback function triggered when the input loses focus.
 - `onChange`
   - : `function`. A callback function triggered upon input value change.
+- `onKeyDown`
+  - : `function`. A callback function triggered when a key is pressed while the input is focused.
+- `onKeyUp`
+  - : `function`. A callback function triggered when a key is released while the input is focused.
 
 ## Try it
 
@@ -53,6 +57,12 @@ function InputExample() {
       placeholder="Enter your name"
       onChange={(e) => {
         console.log(e.target.value);
+      }}
+      onKeyDown={(e) => {
+        console.log('Key down:', e.key);
+      }}
+      onKeyUp={(e) => {
+        console.log('Key up:', e.key);
       }}
     />
   );
