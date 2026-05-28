@@ -24,6 +24,7 @@ import { GaurdStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 import DyvixButton from '../button/button';
 import DyvixFile from '../file/file';
+import { values } from 'idb-keyval';
 
 export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
@@ -382,7 +383,13 @@ function Modal({
                       }),
                       ...(ErrorId && {
                         'aria-describedby': ErrorId
-                      })
+                      }),
+                      onChange: (e) => {
+                        const value = elementDef['is_custom'] ? e : (field.type === 'checkbox' ? e.target.checked: e.target.value);
+                        handleInputChange(
+                          name,
+                          value
+                        );}
                     };
 
                     return (
@@ -392,9 +399,6 @@ function Modal({
                             defaultValue=""
                             key={j}
                             {...Tagprobs}
-                            onChange={(e) =>
-                              handleInputChange(name, e.target.value)
-                            }
                           >
                             <option disabled value="">
                               {field.placeholder[j]}
@@ -414,12 +418,6 @@ function Modal({
                           <label key={j} className="modal-checkbox-label">
                             <Tag
                               {...Tagprobs}
-                              onChange={(e) =>
-                                handleInputChange(
-                                  name,
-                                  elementDef['is_custom'] ? e : e.target.checked
-                                )
-                              }
                             />
                             {field.placeholder?.[j]}
                           </label>
@@ -427,12 +425,6 @@ function Modal({
                           <Tag
                             key={j}
                             {...Tagprobs}
-                            onChange={(e) =>
-                              handleInputChange(
-                                name,
-                                elementDef['is_custom'] ? e : e.target.value
-                              )
-                            }
                           />
                         )}
                         <span className="dyvix-error-text" id={ErrorId}>

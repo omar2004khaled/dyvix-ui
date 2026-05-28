@@ -31,6 +31,7 @@
   transform: scale(0.98);
 }
 .dyvix-file-hidden {
+  display: none !important;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -38,6 +39,9 @@
   overflow: hidden;
   border: none;
   background-color: transparent;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  white-space: nowrap;
   color: transparent;
   border: none;
   opacity: 0;

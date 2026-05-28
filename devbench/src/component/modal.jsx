@@ -50,6 +50,22 @@ export function ModalTest() {
       elements={[        
         {
           type: 'file',
+          placeholder: ['File one'],
+          id: 'file',
+          name: ['Fileone'],
+          className: 'ex-text',
+          amount: 1
+        },
+          {
+          type: 'file',
+          placeholder: [ 'File two'],
+          id: 'filex',
+          name: [ 'Filetwo'],
+          className: 'ex-text',
+          amount: 1
+        },
+        {
+          type: 'text',
           placeholder: ['First Name', 'Last Name'],
           id: 'name',
           name: ['firstName', 'lastName'],

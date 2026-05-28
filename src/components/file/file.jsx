@@ -21,6 +21,7 @@ function DyvixFile({
 }) {
   const [file, Setfile] = React.useState(null);
   const fileRef = React.useRef(null);
+  const fileInputRef = React.useRef(null);
   const [configs, SetConfig] = React.useState({});
   const instanceId = React.useId();
 
@@ -48,6 +49,13 @@ function DyvixFile({
       if (typeof onUpload === 'function') {
         onUpload(files.length == 1 ? files[0] : files);
       }
+    }
+  }
+
+  function handleUiClick(e) {
+    e.stopPropagation();
+    if(fileInputRef.current) {
+      fileInputRef.current.click();
     }
   }
 
@@ -95,14 +103,15 @@ function DyvixFile({
   return (
     <div className="dyvix-file-wrapper" ref={fileRef} {...rest}>
       <label {...props} htmlFor="file-upload">
-        <div className="dyvix-file-ui">
+        <div className="dyvix-file-ui" onClick={handleUiClick}>
           <span className="dyvix-file-icon">📁</span>
           <p style={{ color: color }}>{file !== null ? file : label}</p>
         </div>
         <input
+          ref={fileInputRef}
           type="file"
           className="dyvix-file-hidden"
-          id="file-upload"
+          id={`file-upload-${instanceId}`}
           accept={accept}
           onChange={(e) => handleFileChange(e)}
           {...(multiple && { multiple })}
