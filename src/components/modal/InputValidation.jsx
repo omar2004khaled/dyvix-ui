@@ -108,7 +108,7 @@ export async function ValidateInput(
     component,
     instance
   );
-  if (animation === '!/') {
+  if (animation === '!/' && preset === '!/' && theme !== '!/') {
     animation = isTheme.config.theme['default-animation'];
   }
   const [isAnimation, isPreset] = await Promise.all([
@@ -137,7 +137,7 @@ export async function ValidateInput(
       error: 'Please provide a vaild animation.'
     };
   }
-  if (!isTheme.status) {
+  if (!isTheme.status && preset === '!/') {
     return {
       status: GaurdStatus.Error,
       error: 'Please provide a vaild theme.'
