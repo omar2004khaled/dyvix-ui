@@ -40,10 +40,15 @@
     "default-animation": "drop"
   },
   {
+    "theme": "Forest",
+    "class": "dyvix-input-forest",
+    "default-animation": "glide",
+    "radiused": false
+  },
+  {
     "theme": "Midnight",
     "class": "dyvix-input-midnight",
     "default-animation": "drift",
     "radiused": false
   }
-
 ]
