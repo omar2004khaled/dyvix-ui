@@ -1,11 +1,13 @@
-function DyvixLabel({ children, className = '', htmlFor, style, ...props }) {
+import './dependencies/style/style.css';
+
+function DyvixLabel({ children, className = '', htmlFor, style, ...rest }) {
 
   className += `dyvix-label${className === '' ? '': ` ${className}`}`;
   const props = {
     className: className,
     ...(htmlFor && {htmlFor: htmlFor}),
     style,
-    ...props
+    ...rest
   }
 
  return (

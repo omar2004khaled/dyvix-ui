@@ -1,0 +1,12 @@
+.dyvix-label {
+  display: inline-block;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: 0.025em;
+  user-select: none;
+  margin-bottom: 0.1rem;
+  cursor: pointer; 
+  transition: color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}

@@ -44,7 +44,7 @@ export function ModalTest() {
       title="Register"
       Id="register-modal"
       className="modalsss"
-      theme={DYVIX_GLOBAL_THEME.NEON}
+      theme={"Neon"}
       //  preset={'ResetPassword'}
       type="auth"
       elements={[
