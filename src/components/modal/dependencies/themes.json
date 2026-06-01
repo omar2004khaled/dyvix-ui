@@ -64,5 +64,11 @@
     "class": "dyvix-modal-midnight",
     "default-animation": "drift",
     "radiused": false
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-modal-crimson",
+    "default-animation": "float",
+    "radiused": false
   }
 ]
