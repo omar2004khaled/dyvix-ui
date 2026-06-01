@@ -10,6 +10,7 @@ import { ToastTest } from './component/toast';
 import { ButtonTest } from './component/button';
 import { FileTest } from './component/file';
 import { InputTest } from './component/input';
+import { LabelTest } from './component/label';
 import dyvixLogo from './assets/logo.png';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -21,7 +22,8 @@ const Links = {
   Select: SelectTest,
   Button: ButtonTest,
   File: FileTest,
-  Input: InputTest
+  Input: InputTest,
+  Label: LabelTest
 };
 
 function App() {

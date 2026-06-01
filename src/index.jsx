@@ -5,4 +5,5 @@ export { default as DyvixToastContainer } from './components/toast/toastContaine
 export { default as dyvixToast } from './components/toast/bus';
 export { default as DyvixButton } from './components/button/button';
 export { default as DyvixFile } from './components/file/file';
-export { default as DyvixInput } from './components//input/input';
+export { default as DyvixInput } from './components/input/input';
+export { default as DyvixLabel } from './components/label/label'
