@@ -389,3 +389,29 @@
     inset 0 0 20px rgba(112, 168, 247, 0.2);
   transform: translateY(3px) scale(0.9);
 }
+.dyvix-button-crimson {
+  background: #1a0000;
+  color: #ffd6d6;
+  border: 1px solid #ff4d4d;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(255, 77, 77, 0.25);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.dyvix-button-crimson:hover {
+  background: #2a0000;
+  border-color: #ff6666;
+  transform: scale(1.02);
+  box-shadow: 0 0 28px rgba(255, 77, 77, 0.45);
+}
+
+.dyvix-button-crimson:active {
+  transform: scale(0.98);
+  background: #140000;
+  border-color: #ff8080;
+  box-shadow: 0 0 14px rgba(255, 77, 77, 0.3);
+}

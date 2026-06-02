@@ -53,5 +53,10 @@
     "theme": "Midnight",
     "class": "dyvix-button-midnight",
     "default-animation": "drift"
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-button-crimson",
+    "default-animation": "float"
   }
 ]
