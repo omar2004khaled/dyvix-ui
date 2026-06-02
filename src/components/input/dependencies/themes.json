@@ -52,6 +52,6 @@
   {
     "theme": "Crimson",
     "class": "dyvix-input-crimson",
-    "default-animation": "glitch"
+    "default-animation": "float"
   }
 ]
