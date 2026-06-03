@@ -6,7 +6,7 @@ export function LabelTest() {
       <DyvixLabel
         htmlFor="hh"
         animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
-        theme={DYVIX_GLOBAL_THEME.INDUSTRIAL}
+        theme={DYVIX_GLOBAL_THEME.EMBER}
       >
         Enter your name
       </DyvixLabel>
