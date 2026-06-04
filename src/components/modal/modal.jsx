@@ -37,6 +37,7 @@ const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
  * @param {string} props.title - Modal title
  * @param {('auth'|'form')} props.type - Modal type
  * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora')} props.theme - Modal theme
+ * @param {string} [props.background] - Modal background color
  * @param {string} [props.animation] - Animation name, defaults to theme default
  * @param {string} [props.Id] - modal id
  * @param {string} [props.className] - modal className
