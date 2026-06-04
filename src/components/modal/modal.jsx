@@ -37,6 +37,7 @@ const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
  * @param {string} props.title - Modal title
  * @param {('auth'|'form')} props.type - Modal type
  * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora')} props.theme - Modal theme
+ * @param {string} [props.background] - Modal background color
  * @param {string} [props.animation] - Animation name, defaults to theme default
  * @param {string} [props.Id] - modal id
  * @param {string} [props.className] - modal className
@@ -51,6 +52,8 @@ function Modal({
   elements,
   preset = '!/',
   theme = '!/',
+  background,
+  style,
   animation = '!/',
   Id,
   className,
@@ -161,7 +164,7 @@ function Modal({
   const currentAnimation = configs['animation'];
   const currentPreset = configs['preset'];
   const serilaizedclassName =
-    className + ` ${currentTheme?.class}` + ` ${currentType.class}`;
+    className + `${currentTheme?.class ? ` ${currentTheme?.class}`: ''}` + ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
   const heightMap = {
     1: '19rem',
@@ -175,7 +178,7 @@ function Modal({
     9: '56rem'
   };
   let idealSize = heightMap[fields?.length] || '26rem';
-  const geometryBuffer = currentTheme?.radiused
+  const geometryBuffer = currentTheme?.radiused || !currentTheme
     ? (2.5 * fields?.length) / 3
     : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
@@ -184,12 +187,20 @@ function Modal({
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
   const isCentered = fields?.length <= 5;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
-  const modalStyles = {
-    height: dynamicHeight,
-    width: dynamicWidth,
-    margin: dynamicMargin,
-    transition: 'all 0.3s ease-out'
-  };
+  
+const defaultStyle = {
+  ...(!currentTheme && { background: background || 'white' }),
+  fontFamily: 'Geist, sans-serif',
+  borderRadius: '2rem'
+};
+const activeStyle = style || defaultStyle;
+const modalStyles = {
+  height: dynamicHeight,
+  width: dynamicWidth,
+  margin: dynamicMargin,
+  transition: 'all 0.3s ease-out',
+  ...activeStyle
+};
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
     animation =
@@ -199,7 +210,7 @@ function Modal({
     theme =
       theme !== '!/' ? theme : currentPreset['default-theme'] || 'Singularity';
   } else {
-    theme = theme !== '!/' ? theme : 'Singularity';
+    theme = theme !== '!/' ? theme : '!/';
   }
 
   React.useEffect(() => {
