@@ -13,5 +13,10 @@
     "theme": "Ember",
     "class": "dyvix-label-ember",
     "default-animation": "glitch"
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-label-crimson",
+    "default-animation": "float"
   }
 ]
