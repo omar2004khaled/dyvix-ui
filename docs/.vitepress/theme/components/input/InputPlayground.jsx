@@ -68,7 +68,7 @@ export default function InputPlayground() {
     {
       utility: 'background',
       type: 'color',
-      current: '#32374e',
+      current: undefined,
       format: 'string'
     },
     {
