@@ -34,18 +34,20 @@ const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
 
 /**
  * @param {Object} props
- * @param {string} props.title - Modal title
- * @param {('auth'|'form')} props.type - Modal type
- * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora')} props.theme - Modal theme
+ * @param {string} [props.title] - Modal title
+ * @param {('auth'|'form')} [props.type] - Modal type
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} [props.theme] - Modal theme
+ * @param {string} [props.preset] - Modal preset name
  * @param {string} [props.background] - Modal background color
  * @param {string} [props.animation] - Animation name, defaults to theme default
- * @param {string} [props.Id] - modal id
- * @param {string} [props.className] - modal className
+ * @param {string} [props.Id] - Modal id
+ * @param {string} [props.className] - Modal className
  * @param {Function} [props.onClose] - Close callback
  * @param {Function} [props.onChange] - Change callback
  * @param {Function} [props.onSubmit] - Submit callback
- * @param {Array<Object>} props.elements - Array of element configs
- */
+ * @param {Array<Object>} [props.elements] - Array of element configs
+ * @param {Object} [props.style] - Inline style overrides
+*/
 function Modal({
   title = '!/',
   type = `form`,
@@ -53,13 +55,13 @@ function Modal({
   preset = '!/',
   theme = '!/',
   background,
-  style,
   animation = '!/',
   Id,
   className,
   onSubmit,
   onChange,
-  onClose
+  onClose,
+  style
 }) {
   const [data, SetData] = React.useState({});
   const [errors, SetErrors] = React.useState({});
