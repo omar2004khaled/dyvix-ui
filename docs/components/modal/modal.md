@@ -25,6 +25,8 @@ The modal component is a core Dyvix UI component. It's a config driven, animated
   - : `string`. Represents the type of the modal. Defaults to `form`. Supported types are `form` and `auth`.
 - `theme`
   - : `string`. Controls the design and the feel of the modal. See the [Themes list](/guide/themes) for a full list.
+- `background`
+  - : `string`. Controls the modal background color.
 - `animation`
   - : `string`. Controls the entrance animation of the modal. See the [Animation List](/guide/animations) for a full list.
 - `preset`
