@@ -64,7 +64,8 @@ export default defineConfig({
           { text: 'Toast', link: 'components/toast/toast' },
           { text: 'Button', link: 'components/button/button' },
           { text: 'File', link: 'components/file/file' },
-          { text: 'Input', link: 'components/input/input' }
+          { text: 'Input', link: 'components/input/input' },
+          { text: 'Label', link: 'components/label/label' }
         ]
       }
     ],

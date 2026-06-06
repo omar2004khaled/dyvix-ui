@@ -1,0 +1,36 @@
+---
+title: Dyvix Label
+---
+
+# Dyvix Label
+
+A config-driven animated label component with support for themed and default coloring styles.
+
+## Attributes
+
+- `className`
+  - : `string`. Contains a custom class for your Label, allowing more control for the developer.
+- `htmlFor`
+  - : `string`. Links the label to a form associated element.
+- `animation`
+  - : `string`. Controls the entrance animation of the button. See the [Animation Presets](/guide/animations) for a full list.
+- `theme`
+  - : `string`. Controls the design and the feel of the button. See the [Themes list](/guide/themes) for a full list.
+
+## Example
+
+```jsx
+import { DyvixLabel, DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
+
+function LabelExample() {
+  return (
+    <DyvixLabel
+      htmlFor="name"
+      animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
+      theme={DYVIX_GLOBAL_THEME.CRIMSON}
+    >
+      Enter your name
+    </DyvixLabel>
+  );
+}
+```

@@ -27,7 +27,7 @@ A config-driven animated button component with support for themed and default co
 ## Example
 
 ```jsx
-import { DyvixButton } from 'dyvix-ui';
+import { DyvixLabel, DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 
 function ButtonExample() {
   return (

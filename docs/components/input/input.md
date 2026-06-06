@@ -1,5 +1,8 @@
 ---
 title: Dyvix Input
+next:
+  text: 'Label Component'
+  link: 'components/label/label'
 ---
 
 # Dyvix Input
