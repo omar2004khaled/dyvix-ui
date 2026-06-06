@@ -6,12 +6,19 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Version from '../../../package.json';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.className] - Label className
+ * @param {string} [props.htmlFor] - Links the label to a form associated element
+ * @param {string} [props.animation] - Animation name
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} [props.theme] - Label theme
+ */
 function DyvixLabel({
   children,
   className = '',
   htmlFor,
   style,
-  animation = '!/',
+  animation = 'fade',
   theme = '!/',
   ...rest
 }) {
