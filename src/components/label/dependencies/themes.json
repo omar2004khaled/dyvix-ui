@@ -23,5 +23,10 @@
     "theme": "Crimson",
     "class": "dyvix-label-crimson",
     "default-animation": "float"
+  },
+  {
+    "theme": "Forest",
+    "class": "dyvix-label-forest",
+    "default-animation": "glide"
   }
 ]

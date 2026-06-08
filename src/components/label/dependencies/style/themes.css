@@ -81,3 +81,21 @@
     0px 4px 12px rgba(220, 20, 60, 0.9),
     0px 0px 30px rgba(220, 20, 60, 0.5);
 }
+.dyvix-label-forest {
+  font-family: 'Geist';
+  color: #86a86b;
+  text-shadow:
+    0 0 8px rgba(163, 236, 101, 0.45),
+    0 0 20px rgba(75, 58, 42, 0.4);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-forest:hover {
+  color: #a3ec65;
+  text-shadow:
+    0 0 12px rgba(163, 236, 101, 0.75),
+    0 0 30px rgba(75, 58, 42, 0.6);
+  transform: translateY(-1px);
+}
