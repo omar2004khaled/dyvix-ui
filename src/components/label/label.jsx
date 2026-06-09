@@ -12,7 +12,8 @@ import Version from '../../../package.json';
  * @param {string} [props.htmlFor] - Links the label to a form associated element
  * @param {string} [props.animation] - Animation name
  * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight'|'Forest')} [props.theme] - Label theme
- * @param {string} [props.background] - Button background color
+ * @param {string} [props.background] - Label background color
+ * @param {string} [props.color] - Label color 
  * @param {Object} [props.style] - Inline styles overrides
 */
 function DyvixLabel({
@@ -22,6 +23,7 @@ function DyvixLabel({
   animation = 'fade',
   theme = '!/',
   background,
+  color,
   style,
   ...rest
 }) {
@@ -70,6 +72,7 @@ function DyvixLabel({
     ...(htmlFor && { htmlFor: htmlFor }),
     style: {
       ...(background && {background: background}),
+      ...(color && {color: color}),
       ...style
     }
   };
