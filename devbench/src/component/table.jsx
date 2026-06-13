@@ -26,6 +26,32 @@ export function TableTest() {
           { id: 5, name: 'Bear', type: 'Wild', hp: 90, region: 'Amr' },
         ]}
       />
+      <DyvixTable>
+        <DyvixTableHeader>
+          <DyvixTableRow>
+            <DyvixTableHead>Vehicle</DyvixTableHead>
+            <DyvixTableHead>Class</DyvixTableHead>
+            <DyvixTableHead>Top Speed</DyvixTableHead>
+          </DyvixTableRow>
+        </DyvixTableHeader>
+        <DyvixTableBody>
+          <DyvixTableRow>
+            <DyvixTableCell>Nissan Skyline GT-R R34</DyvixTableCell>
+            <DyvixTableCell>Street</DyvixTableCell>
+            <DyvixTableCell>180</DyvixTableCell>
+          </DyvixTableRow>
+          <DyvixTableRow>
+            <DyvixTableCell>Porsche 911 GT3 RS</DyvixTableCell>
+            <DyvixTableCell>Track</DyvixTableCell>
+            <DyvixTableCell>193</DyvixTableCell>
+          </DyvixTableRow>
+          <DyvixTableRow>
+            <DyvixTableCell>Mazda RX-7 FD</DyvixTableCell>
+            <DyvixTableCell>Drift</DyvixTableCell>
+            <DyvixTableCell>160</DyvixTableCell>
+          </DyvixTableRow>
+        </DyvixTableBody>
+      </DyvixTable>
     </>
   );
 }
