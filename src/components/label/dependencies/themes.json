@@ -30,6 +30,11 @@
     "default-animation": "float"
   },
   {
+    "theme": "Midnight",
+    "class": "dyvix-label-midnight",
+    "default-animation": "drift"
+  },
+  {
     "theme": "Forest",
     "class": "dyvix-label-forest",
     "default-animation": "glide"

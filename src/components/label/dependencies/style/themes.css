@@ -103,6 +103,24 @@
     0px 4px 12px rgba(220, 20, 60, 0.9),
     0px 0px 30px rgba(220, 20, 60, 0.5);
 }
+.dyvix-label-midnight {
+  font-family: 'Geist';
+  color: #00106b;
+  text-shadow:
+    0 0 8px rgba(112, 168, 247, 0.5),
+    0 0 22px rgba(99, 102, 241, 0.35);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-midnight:hover {
+  color: #001a8f;
+  text-shadow:
+    0 0 12px rgba(112, 168, 247, 0.7),
+    0 0 34px rgba(99, 102, 241, 0.55);
+  transform: translateY(-1px);
+}
 .dyvix-label-forest {
   font-family: 'Geist';
   color: #86a86b;
