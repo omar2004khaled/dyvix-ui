@@ -105,7 +105,7 @@
 }
 .dyvix-label-midnight {
   font-family: 'Geist';
-  color: #00106b;
+  color: #7aaaff;
   text-shadow:
     0 0 8px rgba(112, 168, 247, 0.5),
     0 0 22px rgba(99, 102, 241, 0.35);
@@ -115,7 +115,7 @@
     transform 0.3s ease-in-out;
 }
 .dyvix-label-midnight:hover {
-  color: #001a8f;
+  color: #a0c4ff;
   text-shadow:
     0 0 12px rgba(112, 168, 247, 0.7),
     0 0 34px rgba(99, 102, 241, 0.55);
