@@ -409,7 +409,6 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          console.log(Tag);
                           const value = elementDef['is_custom']
                             ? e
                             : field.type === 'checkbox'
