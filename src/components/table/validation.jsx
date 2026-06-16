@@ -38,6 +38,9 @@ export async function ValidateTable(
     };
   }
   if (!children) {
+    
+    // Validate table columns when the user is using table config-mode.
+
     if (!Array.isArray(columns)) {
       return {
         status: GuardStatus.Error,
@@ -58,6 +61,35 @@ export async function ValidateTable(
     if (isDuplicateCol?.status === GuardStatus.Error) {
       return isDuplicateCol;
     }
+    
+    // Validate table data for table config-mode.
+
+    if(!Array.isArray(data)) {
+      return {
+        status: GuardStatus.Error,
+        error: 'data prop cannot be empty.'
+      };
+    }
+
+    const hasNullRow = data.some(row => row === null || typeof row !== 'object');
+
+    if(hasNullRow) {
+      return {
+        status: GuardStatus.Error,
+       error: 'All data entries must be valid objects.'
+      };
+    }
+
+    const availableKeys = columns.map(col => col.key);
+    const isMismatch = data.some(row => availableKeys.some(key => !(key in row)));
+
+    if (isMismatch) {
+      return {
+        status: GuardStatus.Error,
+        error: 'data keys do not match column keys.'
+      };
+    }
+
   }
   return { status: GuardStatus.Success };
 }
