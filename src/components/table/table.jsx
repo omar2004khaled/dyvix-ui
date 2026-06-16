@@ -8,7 +8,7 @@ import DyvixTableCell from './DyvixTableCell';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ValidateTable } from './validation';
-import { GuardStatus } from '../../utils/DyvixGuard';
+import { GuardStatus, EvaluateFailure } from '../../utils/DyvixGuard';
 
 function DyvixTable({
   children,
@@ -24,6 +24,7 @@ function DyvixTable({
   const props = {
     className: tableClasses
   };
+  const [isValid, SetIsvalid] = React.useState(false);
 
   const currentAnimation = animation ? configs['animation'] : null;
 
@@ -57,28 +58,28 @@ function DyvixTable({
     );
   };
 
-  const resultJSX = React.useMemo(
-    () => (columns ? ConstructTable() : null),
-    [columns]
-  );
-  children = children ? children : resultJSX;
-
   React.useEffect(() => {
     async function validate() {
       const validator = await ValidateTable(
         animation,
         '',
+        children,
+        columns,
+        data,
         SetConfig,
         instanceId
       );
 
       if (validator.status === GuardStatus.Error) {
+        SetIsvalid(false);
         return EvaluateFailure(validator.error, validator.status);
+      } else {
+        SetIsvalid(true);
       }
     }
 
     validate();
-  }, [animation]);
+  }, [animation, columns, data]);
   useGSAP(() => {
     if (!tableRef.current || !currentAnimation) return;
 
@@ -88,6 +89,11 @@ function DyvixTable({
       ease: currentAnimation.ease
     });
   }, [currentAnimation]);
+  const resultJSX = React.useMemo(
+    () => (columns && isValid ? ConstructTable() : null),
+    [columns, isValid]
+  );
+  children = children ? children : resultJSX;
   return (
     <div className="dyvix-table-wrapper" ref={tableRef}>
       <table {...props}>{children}</table>

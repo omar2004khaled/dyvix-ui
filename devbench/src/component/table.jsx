@@ -11,7 +11,7 @@ export function TableTest() {
   return (
     <>
       <DyvixTable
-      animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
+        animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
         columns={[
           { key: 'id', label: 'ID' },
           { key: 'name', label: 'Name' },
