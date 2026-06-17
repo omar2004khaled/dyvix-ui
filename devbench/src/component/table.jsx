@@ -10,7 +10,7 @@ import { DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 export function TableTest() {
   return (
     <>
-      <DyvixTable
+       <DyvixTable
         animation={DYVIX_GLOBAL_ANIMATION.DRIFT}
         theme={DYVIX_GLOBAL_THEME.SINGULARITY}
         columns={[
