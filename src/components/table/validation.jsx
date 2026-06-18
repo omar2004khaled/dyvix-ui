@@ -29,7 +29,7 @@ export async function ValidateTable(
   let normalizedAnimation = animation?.trim().toLowerCase();
   const normalizedTheme =
     theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
-  
+
   const isTheme = await ValidatAndLoadJSON(
     CacheMapping,
     normalizedTheme,
@@ -49,7 +49,7 @@ export async function ValidateTable(
     'animation',
     component
   );
-  
+
   if (!isAnimation.status && !allowsNull(normalizedAnimation)) {
     return {
       status: GuardStatus.Error,

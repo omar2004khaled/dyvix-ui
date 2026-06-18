@@ -31,7 +31,11 @@ export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
-const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile, DyvixInput: DyvixInput };
+const componentsMap = {
+  DynamicSelect: DynamicSelect,
+  DyvixFile: DyvixFile,
+  DyvixInput: DyvixInput
+};
 
 /**
  * @param {Object} props
@@ -153,8 +157,7 @@ function Modal({
   function handleSubmit() {
     const newErrors = handleValidation(data);
     const allow =
-      Object.values(newErrors).every((val) => val === null) &&
-      Object.keys(data).some((key) => data[key] !== null);
+      Object.values(newErrors).every((val) => val === null);
     if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);
     }
@@ -411,12 +414,14 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          const value = elementDef.tag === 'DyvixInput' ? e.target.value 
-                          : elementDef['is_custom']
-                            ? e
-                            : field.type === 'checkbox'
-                              ? e.target.checked
-                              : e.target.value;
+                          const value =
+                            elementDef.tag === 'DyvixInput'
+                              ? e.target.value
+                              : elementDef['is_custom']
+                                ? e
+                                : field.type === 'checkbox'
+                                  ? e.target.checked
+                                  : e.target.value;
                           handleInputChange(name, value);
                         }
                       }),
