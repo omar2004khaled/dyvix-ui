@@ -1,7 +1,7 @@
 [
   {
     "element": "text",
-    "tag": "input",
+    "tag": "DyvixInput",
     "tag-type": "text",
     "default-class": "modal-text",
     "aria": {
@@ -20,7 +20,7 @@
     "supports-placeholder": true,
     "supports_type": true,
     "supports_autocomplete": true,
-    "is_custom": false,
+    "is_custom": true,
     "requires-options": false,
     "r-variant": true
   },

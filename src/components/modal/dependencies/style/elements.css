@@ -30,10 +30,12 @@
   width: 80%;
   margin-top: 1rem;
 }
-.grouped-elements input {
+.grouped-elements .dyvix-file-wrapper,
+.grouped-elements .modal-file {
   flex: 1;
   max-width: 15rem;
   min-width: 0;
+  width: 100%;
 }
 .grouped-elements:first-of-type {
   margin-top: 4rem;
@@ -204,12 +206,14 @@
   max-width: 100%;
   min-height: 42px;
   height: auto;
+  max-height: 50px;
 }
 .grouped-elements .dyvix-file-wrapper {
   flex: 1;
   max-width: 15rem;
   min-width: 0;
   width: 100%;
+  max-height: 50px;
 }
 .modal-file .dyvix-file-ui p {
   font-size: 0.5rem;

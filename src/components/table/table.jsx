@@ -25,12 +25,13 @@ function DyvixTable({
 }) {
   const instanceId = React.useId();
   const [configs, SetConfig] = React.useState({});
-  const tableRef = React.useRef();  
+  const tableRef = React.useRef();
   const [isValid, SetIsvalid] = React.useState(false);
   const currentAnimation = animation ? configs['animation'] : null;
-  const currentTheme = theme !== "!/" ? configs['theme'] : null;
-  const tableClasses = `dyvix-table  ${currentTheme?.class ?? ''} ${className}`.trim();
-  
+  const currentTheme = theme !== '!/' ? configs['theme'] : null;
+  const tableClasses =
+    `dyvix-table  ${currentTheme?.class ?? ''} ${className}`.trim();
+
   const props = {
     className: tableClasses,
     style: {

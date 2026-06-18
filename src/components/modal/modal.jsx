@@ -24,13 +24,18 @@ import { GuardStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 import DyvixButton from '../button/button';
 import DyvixFile from '../file/file';
+import DyvixInput from '../input/input';
 import { values } from 'idb-keyval';
 
 export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
-const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
+const componentsMap = {
+  DynamicSelect: DynamicSelect,
+  DyvixFile: DyvixFile,
+  DyvixInput: DyvixInput
+};
 
 /**
  * @param {Object} props
@@ -147,13 +152,12 @@ function Modal({
       }
     }
     SetErrors(newErrors);
+    return newErrors;
   }
   function handleSubmit() {
-    const validation = handleValidation(data);
+    const newErrors = handleValidation(data);
     const allow =
-      Object.values(errors).every((val) => val === null) &&
-      Object.keys(errors).length > 0;
-
+      Object.values(newErrors).every((val) => val === null);
     if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);
     }
@@ -381,6 +385,7 @@ function Modal({
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
                       name: name,
+                      theme: theme,
                       style: {
                         fontSize: fontSize,
                         fontWeight: fontWeight
@@ -409,11 +414,14 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          const value = elementDef['is_custom']
-                            ? e
-                            : field.type === 'checkbox'
-                              ? e.target.checked
-                              : e.target.value;
+                          const value =
+                            elementDef.tag === 'DyvixInput'
+                              ? e.target.value
+                              : elementDef['is_custom']
+                                ? e
+                                : field.type === 'checkbox'
+                                  ? e.target.checked
+                                  : e.target.value;
                           handleInputChange(name, value);
                         }
                       }),
@@ -462,7 +470,7 @@ function Modal({
             {currentType.submit && (
               <DyvixButton
                 className="modal-btn"
-                onClick={() => handleSubmit()}
+                onClick={handleSubmit}
                 theme={theme.toLowerCase()}
               >
                 {currentType.submitLabel}
