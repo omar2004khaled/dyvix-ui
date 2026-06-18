@@ -30,10 +30,12 @@
   width: 80%;
   margin-top: 1rem;
 }
-.grouped-elements input {
+.grouped-elements .dyvix-file-wrapper,
+.grouped-elements .modal-file {
   flex: 1;
   max-width: 15rem;
   min-width: 0;
+  width: 100%;
 }
 .grouped-elements:first-of-type {
   margin-top: 4rem;
