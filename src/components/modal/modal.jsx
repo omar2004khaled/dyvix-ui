@@ -429,7 +429,8 @@ function Modal({
                       ...(elementDef.tag === 'DyvixFile' && {
                         onUpload: (e) => {
                           handleInputChange(name, e);
-                        }
+                        },
+                        ...((theme === '!/' || !theme) && {background: "transparent"} )
                       })
                     };
 
