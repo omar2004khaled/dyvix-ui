@@ -382,6 +382,7 @@ function Modal({
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
                       name: name,
+                      theme: theme,
                       style: {
                         fontSize: fontSize,
                         fontWeight: fontWeight
