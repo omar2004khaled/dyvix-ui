@@ -156,8 +156,7 @@ function Modal({
   }
   function handleSubmit() {
     const newErrors = handleValidation(data);
-    const allow =
-      Object.values(newErrors).every((val) => val === null);
+    const allow = Object.values(newErrors).every((val) => val === null);
     if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);
     }
@@ -392,7 +391,7 @@ function Modal({
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
-                      ...(elementDef['is_custom'] && {animation: null}),
+                      ...(elementDef['is_custom'] && { animation: null }),
                       ...(elementDef['supports-placeholder'] && {
                         placeholder: field.placeholder[j],
                         'aria-label': field.placeholder[j]
@@ -430,7 +429,9 @@ function Modal({
                         onUpload: (e) => {
                           handleInputChange(name, e);
                         },
-                        ...((theme === '!/' || !theme) && {background: "transparent"} )
+                        ...((theme === '!/' || !theme) && {
+                          background: 'transparent'
+                        })
                       })
                     };
 

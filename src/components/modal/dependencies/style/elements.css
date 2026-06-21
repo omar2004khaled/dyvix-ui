@@ -54,7 +54,7 @@
     border-color 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
 }
-.modal:not([class*='dyvix-modal-']) .modal-element::placeholder{
+.modal:not([class*='dyvix-modal-']) .modal-element::placeholder {
   color: #1a1a1a !important;
 }
 .modal-element:hover {

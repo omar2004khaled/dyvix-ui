@@ -28,7 +28,10 @@ export function TableTest() {
           { id: 5, name: 'Bear', type: 'Wild', hp: 90, region: 'Amr' }
         ]}
       />
-      <DyvixTable theme={DYVIX_GLOBAL_THEME.FOREST} animation={DYVIX_GLOBAL_ANIMATION.GLIDE}>
+      <DyvixTable
+        theme={DYVIX_GLOBAL_THEME.FOREST}
+        animation={DYVIX_GLOBAL_ANIMATION.GLIDE}
+      >
         <DyvixTableHeader>
           <DyvixTableRow>
             <DyvixTableHead>Vehicle</DyvixTableHead>

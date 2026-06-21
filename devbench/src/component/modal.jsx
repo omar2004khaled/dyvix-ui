@@ -46,7 +46,7 @@ export function ModalTest() {
       className="testmodal"
       //background="red"
       theme={'Crimson'}
-     // background={'Red'}
+      // background={'Red'}
       //  preset={'ResetPassword'}
       type="auth"
       elements={stressTestData}
