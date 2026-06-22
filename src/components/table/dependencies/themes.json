@@ -23,5 +23,10 @@
     "theme": "Sunset",
     "class": "dyvix-table-sunset",
     "default-animation": "drop"
+  },
+  {
+    "theme": "Ocean",
+    "class": "dyvix-table-ocean",
+    "default-animation": "flip"
   }
 ]
