@@ -48,5 +48,10 @@
     "theme": "Neon",
     "class": "dyvix-label-neon",
     "default-animation": "pulse"
+  },
+  {
+    "theme": "Aurora",
+    "class": "dyvix-label-aurora",
+    "default-animation": "aurora"
   }
 ]
