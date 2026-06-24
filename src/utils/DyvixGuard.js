@@ -1,4 +1,4 @@
-export const GaurdStatus = {
+export const GuardStatus = {
   Error: 'error',
   Warn: 'warn',
   Log: 'log',
@@ -10,13 +10,13 @@ export function EvaluateFailure(message = '', status) {
   const formatedmsg = `${PREFIX} - ${message}`;
 
   switch (status) {
-    case GaurdStatus.Error:
+    case GuardStatus.Error:
       console.error(formatedmsg);
       return null;
-    case GaurdStatus.Warn:
+    case GuardStatus.Warn:
       console.warn(formatedmsg);
       break;
-    case GaurdStatus.Log:
+    case GuardStatus.Log:
       console.log(formatedmsg);
   }
 }

@@ -1,0 +1,57 @@
+[
+  {
+    "theme": "Singularity",
+    "class": "dyvix-label-lens",
+    "default-animation": "bubble"
+  },
+  {
+    "theme": "Industrial",
+    "class": "dyvix-label-industrial",
+    "default-animation": "fade"
+  },
+  {
+    "theme": "Ember",
+    "class": "dyvix-label-ember",
+    "default-animation": "glitch"
+  },
+  {
+    "theme": "Frost",
+    "class": "dyvix-label-frost",
+    "default-animation": "unfold"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-label-blade",
+    "default-animation": "Zoom"
+  },
+  {
+    "theme": "Ocean",
+    "class": "dyvix-label-ocean",
+    "default-animation": "flip"
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-label-crimson",
+    "default-animation": "float"
+  },
+  {
+    "theme": "Midnight",
+    "class": "dyvix-label-midnight",
+    "default-animation": "drift"
+  },
+  {
+    "theme": "Forest",
+    "class": "dyvix-label-forest",
+    "default-animation": "glide"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-label-neon",
+    "default-animation": "pulse"
+  },
+  {
+    "theme": "Aurora",
+    "class": "dyvix-label-aurora",
+    "default-animation": "aurora"
+  }
+]

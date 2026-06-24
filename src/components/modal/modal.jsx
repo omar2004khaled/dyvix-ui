@@ -20,43 +20,53 @@ import {
   normalizeElements,
   validateElements
 } from './InputValidation';
-import { GaurdStatus } from '../../utils/DyvixGuard';
+import { GuardStatus } from '../../utils/DyvixGuard';
 import Version from '../../../package.json';
 import DyvixButton from '../button/button';
 import DyvixFile from '../file/file';
+import DyvixInput from '../input/input';
 import { values } from 'idb-keyval';
 
 export const validType = typesData.map((e) => e.type);
 export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
-const componentsMap = { DynamicSelect: DynamicSelect, DyvixFile: DyvixFile };
+const componentsMap = {
+  DynamicSelect: DynamicSelect,
+  DyvixFile: DyvixFile,
+  DyvixInput: DyvixInput
+};
 
 /**
  * @param {Object} props
- * @param {string} props.title - Modal title
- * @param {('auth'|'form')} props.type - Modal type
- * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora')} props.theme - Modal theme
+ * @param {string} [props.title] - Modal title
+ * @param {('auth'|'form')} [props.type] - Modal type
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} [props.theme] - Modal theme
+ * @param {string} [props.preset] - Modal preset name
+ * @param {string} [props.background] - Modal background color
  * @param {string} [props.animation] - Animation name, defaults to theme default
- * @param {string} [props.Id] - modal id
- * @param {string} [props.className] - modal className
+ * @param {string} [props.Id] - Modal id
+ * @param {string} [props.className] - Modal className
  * @param {Function} [props.onClose] - Close callback
  * @param {Function} [props.onChange] - Change callback
  * @param {Function} [props.onSubmit] - Submit callback
- * @param {Array<Object>} props.elements - Array of element configs
+ * @param {Array<Object>} [props.elements] - Array of element configs
+ * @param {Object} [props.style] - Inline style overrides
  */
 function Modal({
   title = '!/',
   type = `form`,
   elements,
   preset = '!/',
-  theme = 'Singularity',
+  theme = '!/',
+  background,
   animation = '!/',
   Id,
   className,
   onSubmit,
   onChange,
-  onClose
+  onClose,
+  style
 }) {
   const [data, SetData] = React.useState({});
   const [errors, SetErrors] = React.useState({});
@@ -142,13 +152,11 @@ function Modal({
       }
     }
     SetErrors(newErrors);
+    return newErrors;
   }
   function handleSubmit() {
-    const validation = handleValidation(data);
-    const allow =
-      Object.values(errors).every((val) => val === null) &&
-      Object.keys(errors).length > 0;
-
+    const newErrors = handleValidation(data);
+    const allow = Object.values(newErrors).every((val) => val === null);
     if (typeof onSubmit === 'function' && allow) {
       onSubmit(data);
     }
@@ -176,38 +184,56 @@ function Modal({
     })
   };
   const serilaizedclassName =
-    className + ` ${currentTheme?.class}` + ` ${currentType.class}`;
+    className +
+    `${currentTheme?.class ? ` ${currentTheme?.class}` : ''}` +
+    ` ${currentType.class}`;
   // Dynamicily calculate modal sizing and position
   const heightMap = {
     1: '19rem',
     2: '24rem',
     3: '26rem',
     4: '31rem',
-    5: '36rem',
+    5: '37rem',
     6: '41rem',
     7: '46rem',
-    8: '51rem',
-    9: '56rem'
+    8: '53rem',
+    9: '57rem'
   };
   let idealSize = heightMap[fields?.length] || '26rem';
-  const geometryBuffer = currentTheme?.radiused
-    ? (2.5 * fields?.length) / 3
-    : 0;
+  const geometryBuffer =
+    currentTheme?.radiused || !currentTheme ? (2.5 * fields?.length) / 3 : 0;
   idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
-  const isCentered = fields?.length <= 5;
+  const isCentered = fields?.length <= 4;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
+
+  const defaultStyle = {
+    ...(!currentTheme && { background: background || 'white' }),
+    fontFamily: 'Geist, sans-serif',
+    borderRadius: '2rem'
+  };
+  const activeStyle = style || defaultStyle;
   const modalStyles = {
     height: dynamicHeight,
     width: dynamicWidth,
     margin: dynamicMargin,
-    transition: 'all 0.3s ease-out'
+    transition: 'all 0.3s ease-out',
+    ...activeStyle
   };
   if (currentPreset) {
     title = title !== '!/' ? title : currentPreset['default-title'];
+    animation =
+      animation !== '!/'
+        ? animation
+        : currentPreset['default-animation'] || 'fade';
+    theme =
+      theme !== '!/' ? theme : currentPreset['default-theme'] || 'Singularity';
+  } else {
+    theme = theme !== '!/' ? theme : '!/';
   }
+
   React.useEffect(() => {
     async function GetFields() {
       const data = await SerializeData(
@@ -375,6 +401,7 @@ function Modal({
                     const Tagprobs = {
                       className: `modal-element ` + elementDef['default-class'],
                       name: name,
+                      theme: theme,
                       style: {
                         fontSize: fontSize,
                         fontWeight: fontWeight,
@@ -382,6 +409,7 @@ function Modal({
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
+                      ...(elementDef['is_custom'] && { animation: null }),
                       ...(elementDef['supports-placeholder'] && {
                         placeholder: field.placeholder[j],
                         'aria-label': field.placeholder[j]
@@ -404,18 +432,24 @@ function Modal({
                       }),
                       ...(elementDef.tag !== 'DyvixFile' && {
                         onChange: (e) => {
-                          const value = elementDef['is_custom']
-                            ? e
-                            : field.type === 'checkbox'
-                              ? e.target.checked
-                              : e.target.value;
+                          const value =
+                            elementDef.tag === 'DyvixInput'
+                              ? e.target.value
+                              : elementDef['is_custom']
+                                ? e
+                                : field.type === 'checkbox'
+                                  ? e.target.checked
+                                  : e.target.value;
                           handleInputChange(name, value);
                         }
                       }),
                       ...(elementDef.tag === 'DyvixFile' && {
                         onUpload: (e) => {
                           handleInputChange(name, e);
-                        }
+                        },
+                        ...((theme === '!/' || !theme) && {
+                          background: 'transparent'
+                        })
                       })
                     };
 
@@ -465,8 +499,9 @@ function Modal({
             {currentType.submit && (
               <DyvixButton
                 className="modal-btn"
-                onClick={() => handleSubmit()}
+                onClick={handleSubmit}
                 theme={theme.toLowerCase()}
+                animation={null}
               >
                 {currentType.submitLabel}
               </DyvixButton>

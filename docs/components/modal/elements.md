@@ -23,3 +23,4 @@ Dyvix provides a wide range of element. You can trigger these by passing the str
 - `DYVIX_MODAL_ELEMENT.D_SELECT`: `'d-select'`
 - `DYVIX_MODAL_ELEMENT.AUTOCOMPLETE`: `'autocomplete'`
 - `DYVIX_MODAL_ELEMENT.CHECKBOX`: `'checkbox'`
+- `DYVIX_MODAL_ELEMENT.FILE`: `'file'`

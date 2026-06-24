@@ -7,8 +7,9 @@
 </h4>
 <p align="center">
   <img src="https://img.shields.io/npm/v/dyvix-ui?color=bf5af2&style=flat-square" />
-  <img src="https://img.shields.io/npm/l/dyvix-ui?color=0ea5e9&style=flat-square" />
+  <a href="https://socket.dev/npm/package/dyvix-ui"><img src="https://socket.dev/api/badge/npm/package/dyvix-ui" /></a>
   <img src="https://img.shields.io/github/stars/younisdev/dyvix-ui?color=ff6ac1&style=flat-square" />
+  <img src="https://img.shields.io/npm/l/dyvix-ui?color=0ea5e9&style=flat-square" />
 </p>
 
 <p align="center">
@@ -44,7 +45,7 @@ function ModalExample()
           type="form"
           animation="bubble" // bubble | fade | zoom | unfold | glitch
           Id="register-modal"
-          Class="modal"
+          className="modal"
           theme='Singularity' // Singularity | Industrial | Ember | Frost | Blade
           elements={[
             { type: "text", placeholder: ["First Name", "Last Name"], id: "name", name: ["firstName", "lastName"], amount: 2 },

@@ -10,10 +10,13 @@
   width: 100%;
   cursor: pointer;
   display: flex;
-  padding: 1rem 0;
-  flex-direction: column;
+  padding: 0 0.5rem;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  min-height: 42px;
+  height: 100%;
+  gap: 0.5rem;
   border: 3px dashed rgba(0, 0, 0, 0.3);
   border-radius: 2rem;
   background-color: rgb(73, 220, 237);

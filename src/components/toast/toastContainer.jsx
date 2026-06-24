@@ -7,7 +7,7 @@ import React from 'react';
 import { subscribe } from './bus';
 import { DyvixToastItem } from './toast';
 import { ValidateContainer } from './validation';
-import { GaurdStatus, EvaluateFailure } from '../../utils/DyvixGuard';
+import { GuardStatus, EvaluateFailure } from '../../utils/DyvixGuard';
 
 export const validPositions = positionData.map((e) => e.position);
 export const validTypes = TypesData.map((e) => e.type);
@@ -28,7 +28,7 @@ function DyvixToastContainer({
 }) {
   const validator = ValidateContainer(position, segments, duration, animation);
 
-  if (validator.status === GaurdStatus.Error) {
+  if (validator.status === GuardStatus.Error) {
     return EvaluateFailure(validator.error, validator.status);
   }
 

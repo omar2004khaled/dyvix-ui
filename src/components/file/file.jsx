@@ -1,11 +1,24 @@
 import React from 'react';
 import './dependencies/style/style.css';
-import { EvaluateFailure, GaurdStatus } from '../../utils/DyvixGuard';
+import { EvaluateFailure, GuardStatus } from '../../utils/DyvixGuard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Version from '../../../package.json';
 import { Validatefile } from './validation';
 
+/**
+ * @param {Object} props
+ * @param {string} [props.label] - Label text displayed on the file picker, defaults to 'Upload File'
+ * @param {string} [props.animation] - Animation name
+ * @param {string} [props.className] - Label className
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} [props.theme] - File theme
+ * @param {string} [props.background] - Label background color
+ * @param {string} [props.color] - Label text color
+ * @param {boolean} [props.multiple] - Allow multiple file selection, defaults to false
+ * @param {string} [props.accept] - Accepted file types, defaults to '*\/*'
+ * @param {function} [props.onUpload] - Callback fired with the uploaded File or FileList
+ * @param {Object} [props.style] - Inline styles overrides
+ */
 function DyvixFile({
   label = 'Upload File',
   animation = '!/',
@@ -70,7 +83,7 @@ function DyvixFile({
         instanceId
       );
 
-      if (validator.status === GaurdStatus.Error) {
+      if (validator.status === GuardStatus.Error) {
         return EvaluateFailure(validator.error, validator.status);
       }
     }

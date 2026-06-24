@@ -1,4 +1,4 @@
-import { EvaluateFailure, GaurdStatus } from '../DyvixGuard';
+import { EvaluateFailure, GuardStatus } from '../DyvixGuard';
 import Version from '../../../package.json';
 import { set, get } from 'idb-keyval';
 import { CSS_LIBRARY, JSON_LIBRARY } from './SJCRegistry';

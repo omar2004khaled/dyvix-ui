@@ -9,6 +9,10 @@ import fileThemesCSS from '../../components/file/dependencies/style/themes.css?r
 import inputTypesJSON from '../../components/input/dependencies/types.json?raw';
 import inputThemesJSON from '../../components/input/dependencies/themes.json?raw';
 import inputThemesCSS from '../../components/input/dependencies/style/themes.css?raw';
+import labelThemesJSON from '../../components/label/dependencies/themes.json?raw';
+import labelThemesCSS from '../../components/label/dependencies/style/themes.css?raw';
+import tableThemesJSON from '../../components/table/dependencies/themes.json?raw';
+import tableThemesCSS from '../../components/table/dependencies/style/themes.css?raw';
 
 export const JSON_LIBRARY = {
   '../../components/button/dependencies/themes.json': buttonThemesJSON,
@@ -17,12 +21,16 @@ export const JSON_LIBRARY = {
   '../../components/animations.json': animationsJSON,
   '../../components/file/dependencies/themes.json': fileThemesJSON,
   '../../components/input/dependencies/types.json': inputTypesJSON,
-  '../../components/input/dependencies/themes.json': inputThemesJSON
+  '../../components/input/dependencies/themes.json': inputThemesJSON,
+  '../../components/label/dependencies/themes.json': labelThemesJSON,
+  '../../components/table/dependencies/themes.json': tableThemesJSON
 };
 
 export const CSS_LIBRARY = {
   '../../components/button/dependencies/style/themes.css': buttonThemesCSS,
   '../../components/modal/dependencies/style/themes.css': modalThemesCSS,
   '../../components/file/dependencies/style/themes.css': fileThemesCSS,
-  '../../components/input/dependencies/style/themes.css': inputThemesCSS
+  '../../components/input/dependencies/style/themes.css': inputThemesCSS,
+  '../../components/label/dependencies/style/themes.css': labelThemesCSS,
+  '../../components/table/dependencies/style/themes.css': tableThemesCSS
 };

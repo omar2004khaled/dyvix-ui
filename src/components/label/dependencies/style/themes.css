@@ -1,0 +1,193 @@
+.dyvix-label-lens {
+  font-family: 'Geist';
+  color: #b903e2;
+  text-shadow:
+    0 0 8px #b903e2,
+    0 0 20px rgba(185, 3, 226, 0.4);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out;
+}
+.dyvix-label-lens:hover {
+  color: white;
+  text-shadow:
+    0 0 12px #b903e2,
+    0 0 30px rgba(185, 3, 226, 0.6);
+}
+.dyvix-label-industrial {
+  font-family: 'Geist';
+  color: #9ca3af;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 2px;
+  transition:
+    color ease-in-out 0.3s,
+    border-color ease-in-out 0.3s;
+}
+.dyvix-label-industrial:hover {
+  color: #6a6a6a;
+  border-bottom-color: #6a6a6a;
+}
+.dyvix-label-ember {
+  font-family: 'Geist';
+  color: #ff4500;
+  text-shadow:
+    0px 4px 8px rgba(255, 69, 0, 0.73),
+    0px 0px 20px rgba(255, 69, 0, 0.3);
+  padding-bottom: 2px;
+  transition:
+    color ease-in-out 0.4s,
+    text-shadow ease-in-out 0.3s,
+    border-bottom ease-in-out 0.4s;
+}
+.dyvix-label-ember:hover {
+  color: #ff6b00;
+  text-shadow:
+    0px 4px 12px rgba(255, 69, 0, 0.9),
+    0px 0px 30px rgba(255, 69, 0, 0.5);
+}
+.dyvix-label-frost {
+  font-family: 'Geist';
+  color: rgba(213, 255, 248, 1);
+  border-bottom: 2px groove #ffffff40;
+  padding-bottom: 2px;
+  text-shadow:
+    0 0 8px rgba(213, 255, 248, 0.65),
+    0 0 20px rgba(248, 248, 248, 0.25);
+  transition:
+    color 0.3s ease-in-out,
+    border-color 0.2s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-frost:hover {
+  color: #f8f8f8;
+  border-bottom-color: #f8f8f840;
+  text-shadow:
+    0 0 12px rgba(213, 255, 248, 0.8),
+    0 0 30px rgba(248, 248, 248, 0.35);
+  transform: translateY(-1px);
+}
+.dyvix-label-blade {
+  font-family: 'Geist';
+  color: #e2e8f0;
+  border-bottom: 2px solid #ffffff20;
+  padding-bottom: 2px;
+  transition:
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+.dyvix-label-blade:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.dyvix-label-ocean {
+  font-family: 'Geist';
+  color: #e0f7ff;
+  text-shadow:
+    0 0 8px rgba(56, 189, 248, 0.55),
+    0 0 22px rgba(14, 165, 233, 0.35);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-ocean:hover {
+  color: #67e8f9;
+  text-shadow:
+    0 0 12px rgba(125, 211, 252, 0.75),
+    0 0 34px rgba(14, 165, 233, 0.55);
+  transform: translateY(-1px);
+}
+.dyvix-label-crimson {
+  font-family: 'Geist';
+  color: #dc143c;
+  text-shadow:
+    0px 4px 8px rgba(220, 20, 60, 0.73),
+    0px 0px 20px rgba(220, 20, 60, 0.3);
+  padding-bottom: 2px;
+  transition:
+    color ease-in-out 0.4s,
+    text-shadow ease-in-out 0.3s,
+    border-bottom ease-in-out 0.4s;
+}
+.dyvix-label-crimson:hover {
+  color: #ff4757;
+  text-shadow:
+    0px 4px 12px rgba(220, 20, 60, 0.9),
+    0px 0px 30px rgba(220, 20, 60, 0.5);
+}
+.dyvix-label-midnight {
+  font-family: 'Geist';
+  color: #7aaaff;
+  text-shadow:
+    0 0 8px rgba(112, 168, 247, 0.5),
+    0 0 22px rgba(99, 102, 241, 0.35);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-midnight:hover {
+  color: #a0c4ff;
+  text-shadow:
+    0 0 12px rgba(112, 168, 247, 0.7),
+    0 0 34px rgba(99, 102, 241, 0.55);
+  transform: translateY(-1px);
+}
+.dyvix-label-forest {
+  font-family: 'Geist';
+  color: #86a86b;
+  text-shadow:
+    0 0 8px rgba(163, 236, 101, 0.45),
+    0 0 20px rgba(75, 58, 42, 0.4);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.dyvix-label-forest:hover {
+  color: #a3ec65;
+  text-shadow:
+    0 0 12px rgba(163, 236, 101, 0.75),
+    0 0 30px rgba(75, 58, 42, 0.6);
+  transform: translateY(-1px);
+}
+.dyvix-label-neon {
+  font-family: 'Geist';
+  color: #4deeea;
+  text-shadow:
+    0 0 8px rgba(77, 238, 234, 0.7),
+    0 0 20px rgba(240, 0, 255, 0.45);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.dyvix-label-neon:hover {
+  color: #f000ff;
+  text-shadow:
+    0 0 12px rgba(77, 238, 234, 0.9),
+    0 0 30px rgba(240, 0, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.dyvix-label-aurora {
+  font-family: 'Geist';
+  color: #00ea8d;
+  text-shadow:
+    0 0 8px rgba(0, 234, 141, 0.55),
+    0 0 22px rgba(181, 61, 255, 0.35);
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.dyvix-label-aurora:hover {
+  color: #b53dff;
+  text-shadow:
+    0 0 12px rgba(0, 234, 141, 0.75),
+    0 0 34px rgba(181, 61, 255, 0.55);
+  transform: translateY(-1px);
+}

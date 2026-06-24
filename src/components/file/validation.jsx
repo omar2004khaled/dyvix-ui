@@ -1,6 +1,6 @@
 import {
   EvaluateFailure,
-  GaurdStatus,
+  GuardStatus,
   allowsNull
 } from '../../utils/DyvixGuard';
 import { ValidatAndLoadJSON } from '../../utils/Smart Json Caching/SJCManager';
@@ -43,17 +43,17 @@ export async function Validatefile(animation, theme, callback, instance) {
   );
   if (!isAnimation.status && !allowsNull(normalizedAnimation)) {
     return {
-      status: GaurdStatus.Error,
+      status: GuardStatus.Error,
       error: 'Please provide a valid animation.'
     };
   }
 
   if (normalizedTheme !== '!/' && !isTheme.status) {
     return {
-      status: GaurdStatus.Error,
+      status: GuardStatus.Error,
       error: 'Please provide a valid theme.'
     };
   }
 
-  return { status: GaurdStatus.Success };
+  return { status: GuardStatus.Success };
 }

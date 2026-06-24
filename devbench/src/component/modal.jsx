@@ -15,7 +15,7 @@ export function ModalTest() {
     placeholder: `Extended Field ${i + 1}`,
     amount: 1
   }));
-  const stressTestData = Array.from({ length: 9 }, (_, i) => {
+  const stressTestData = Array.from({ length: 5 }, (_, i) => {
     const randomEleType = types[Math.floor(Math.random() * types.length)];
     let props = { type: randomEleType, amount: (i % 3) + 1 };
     let placeholder = [];
@@ -43,28 +43,13 @@ export function ModalTest() {
     <Modal
       title="Register"
       Id="register-modal"
-      className="modalsss"
-      theme={DYVIX_GLOBAL_THEME.NEON}
+      className="testmodal"
+      //background="red"
+      theme={'Crimson'}
+      // background={'Red'}
       //  preset={'ResetPassword'}
       type="auth"
-      elements={[
-        {
-          type: 'file',
-          placeholder: ['File one', 'file two', 'filex'],
-          id: 'file',
-          name: ['Fileone', 'filetwo', 'fol'],
-          className: 'ex-text',
-          amount: 3
-        },
-        {
-          type: 'text',
-          placeholder: ['First Name', 'Last Name'],
-          id: 'name',
-          name: ['firstName', 'lastName'],
-          className: 'ex-text',
-          amount: 2
-        }
-      ]}
+      elements={stressTestData}
       onSubmit={(data) => console.log(data)}
       onChange={(data) => console.log(data)}
     />

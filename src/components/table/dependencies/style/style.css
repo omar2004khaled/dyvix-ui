@@ -1,0 +1,76 @@
+.dyvix-table-wrapper {
+  width: 95%;
+  margin: 0.3rem auto;
+  border-radius: 25px;
+}
+.dyvix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-family:
+    'Geist',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 25px;
+  background: #080808;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+table[style*='color'] th,
+table[style*='color'] td {
+  color: inherit;
+}
+
+.dyvix-table thead tr {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dyvix-table th {
+  padding: 12px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: aliceblue;
+}
+.dyvix-table td {
+  padding: 12px 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
+}
+.dyvix-table tbody tr {
+  transition: background 0.15s ease;
+}
+.dyvix-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.dyvix-table thead tr:first-child th:first-child {
+  border-top-left-radius: 21px;
+}
+.dyvix-table thead tr:first-child th:last-child {
+  border-top-right-radius: 21px;
+}
+.dyvix-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 21px;
+}
+.dyvix-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 21px;
+}
+.dyvix-table-sort-icon {
+  min-width: 16px;
+  max-width: 16px;
+}
+.table-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+@media (max-width: 640px) {
+  .dyvix-table-wrapper {
+    overflow-x: auto;
+  }
+}

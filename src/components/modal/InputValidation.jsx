@@ -1,7 +1,7 @@
 import { validType, eleData, validRules } from './modal';
 import {
   EvaluateFailure,
-  GaurdStatus,
+  GuardStatus,
   allowsNull
 } from '../../utils/DyvixGuard';
 import { isValidRegex } from './dependencies/validator/validators';
@@ -72,7 +72,7 @@ export async function SerializeData(
   );
   supportedTypes = await getSupportedElements();
 
-  if (validator.status === GaurdStatus.Error) {
+  if (validator.status === GuardStatus.Error) {
     return EvaluateFailure(validator.error, validator.status);
   }
   const presetData = config.find((item) => item.preset);
@@ -82,7 +82,7 @@ export async function SerializeData(
   );
   const eleValidator = validateElements(normalizedElements);
 
-  if (eleValidator.status === GaurdStatus.Error) {
+  if (eleValidator.status === GuardStatus.Error) {
     return EvaluateFailure(eleValidator.error, eleValidator.status);
   }
   return normalizedElements;
@@ -108,7 +108,12 @@ export async function ValidateInput(
     component,
     instance
   );
-  if (animation === '!/') {
+  if (
+    theme !== '!/' &&
+    isTheme.status &&
+    animation === '!/' &&
+    preset === '!/'
+  ) {
     animation = isTheme.config.theme['default-animation'];
   }
   const [isAnimation, isPreset] = await Promise.all([
@@ -125,7 +130,7 @@ export async function ValidateInput(
   if (preset !== '!/') {
     if (!isPreset.status) {
       return {
-        status: GaurdStatus.Error,
+        status: GuardStatus.Error,
         error: 'Please provide a valid preset.'
       };
     }
@@ -133,14 +138,14 @@ export async function ValidateInput(
 
   if (animation !== '!/' && !isAnimation.status && allowsNull(animation)) {
     return {
-      status: GaurdStatus.Error,
-      error: 'Please provide a vaild animation.'
+      status: GuardStatus.Error,
+      error: 'Please provide a valid animation.'
     };
   }
-  if (!isTheme.status) {
+  if (!isTheme.status && preset === '!/' && theme !== '!/') {
     return {
-      status: GaurdStatus.Error,
-      error: 'Please provide a vaild theme.'
+      status: GuardStatus.Error,
+      error: 'Please provide a valid theme.'
     };
   }
 
@@ -148,28 +153,28 @@ export async function ValidateInput(
 
   if (onSubmit !== undefined && typeof onSubmit !== 'function') {
     return {
-      status: GaurdStatus.Error,
+      status: GuardStatus.Error,
       error: 'onSubmit should be provided as a function.'
     };
   }
-  if (preset !== '!/') return { status: GaurdStatus.Success };
+  if (preset !== '!/') return { status: GuardStatus.Success };
   if (title === '!/') {
-    return { status: GaurdStatus.Error, error: 'Please provide a title' };
+    return { status: GuardStatus.Error, error: 'Please provide a title' };
   }
   if (!validType.includes(type)) {
-    return { status: GaurdStatus.Error, error: 'Please provide a vaild type.' };
+    return { status: GuardStatus.Error, error: 'Please provide a valid type.' };
   }
   if (
     !Array.isArray(elements) ||
     !elements.every((ele) => typeof ele === 'object')
   ) {
     return {
-      status: GaurdStatus.Error,
+      status: GuardStatus.Error,
       error: 'Element should be provided as an array of objects.'
     };
   }
 
-  return { status: GaurdStatus.Success };
+  return { status: GuardStatus.Success };
 }
 export function validateElements(elements) {
   const MAX_ROWS = 9;
@@ -188,14 +193,14 @@ export function validateElements(elements) {
 
     if (!supportedTypes.includes(element.type)) {
       return {
-        status: GaurdStatus.Error,
+        status: GuardStatus.Error,
         error: 'Elements should include a valid type.'
       };
     }
     if (currentType['requires-options']) {
       if (!element.options || element.options.length === 0) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error: `Field '${element.name}' requires an options array.`
         };
       }
@@ -206,14 +211,14 @@ export function validateElements(elements) {
           element.options.length !== element.amount)
       ) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error: `Amount mismatch for '${element.name}'. Expected ${element.amount} option sets.`
         };
       }
     }
     if (element.amount < 1 || element.amount > 3) {
       return {
-        status: GaurdStatus.Error,
+        status: GuardStatus.Error,
         error: 'Element amount should be positive and less than 3.'
       };
     } else if (element.amount > 1) {
@@ -222,7 +227,7 @@ export function validateElements(elements) {
         element.placeholder.length !== element.amount
       ) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error:
             'Element placeholder should be provided as an array of the same length as the provided amount.'
         };
@@ -232,7 +237,7 @@ export function validateElements(elements) {
         element.name.length !== element.amount
       ) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error:
             'Element name should be provided as an array of the same length as the provided amount.'
         };
@@ -244,14 +249,14 @@ export function validateElements(elements) {
         )
       ) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error:
             'Element placeholder should be a string or an array of length 1.'
         };
       }
       if (!(Array.isArray(element.name) && element.name.length === 1)) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error: 'Element name should be a string or an array of length 1.'
         };
       }
@@ -265,7 +270,7 @@ export function validateElements(elements) {
 
     if (rules.length > element.amount) {
       return {
-        status: GaurdStatus.Error,
+        status: GuardStatus.Error,
         error: `Validation overflow: maximum of amount of ${element.amount} reached.`
       };
     }
@@ -279,13 +284,13 @@ export function validateElements(elements) {
 
         if (!isValidRegex(pattern)) {
           return {
-            status: GaurdStatus.Error,
+            status: GuardStatus.Error,
             error: `Invalid Regular Expression was provided.`
           };
         }
       } else if (!validRules.includes(rule)) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error: `'${rule}' is not a recognized validator.`
         };
       }
@@ -300,7 +305,7 @@ export function validateElements(elements) {
         );
         if (!exist) {
           return {
-            status: GaurdStatus.Error,
+            status: GuardStatus.Error,
             error: `'${matchId}' is not a recognized target for matching.`
           };
         }
@@ -311,14 +316,14 @@ export function validateElements(elements) {
   const isDuplicateName = checkDuplicates(elements, 'name');
   const isDuplicateId = checkDuplicates(elements, 'id');
 
-  if (isDuplicateName?.status === GaurdStatus.Error) {
+  if (isDuplicateName?.status === GuardStatus.Error) {
     return isDuplicateName;
   }
-  if (isDuplicateId?.status === GaurdStatus.Error) {
+  if (isDuplicateId?.status === GuardStatus.Error) {
     return isDuplicateId;
   }
 
-  return { status: GaurdStatus.Success };
+  return { status: GuardStatus.Success };
 }
 export function normalizeElements(elements) {
   return elements?.map((ele) => ({
@@ -342,7 +347,7 @@ function checkDuplicates(elements, field) {
       if (val === '!/') continue;
       if (found.has(val)) {
         return {
-          status: GaurdStatus.Error,
+          status: GuardStatus.Error,
           error: `Element ${field} should be unique.`
         };
       }
@@ -351,5 +356,5 @@ function checkDuplicates(elements, field) {
     }
   }
 
-  return { status: GaurdStatus.Success };
+  return { status: GuardStatus.Success };
 }

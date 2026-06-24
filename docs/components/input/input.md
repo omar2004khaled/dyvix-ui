@@ -1,10 +1,13 @@
 ---
 title: Dyvix Input
+next:
+  text: 'Label Component'
+  link: 'components/label/label'
 ---
 
 # Dyvix Input
 
-A config-driven animated input component with support for default coloring styles.
+A config-driven animated input component with support for themed and default coloring styles.
 
 ## Attributes
 
@@ -14,6 +17,8 @@ A config-driven animated input component with support for default coloring style
   - : `string`. The text displayed when the input is empty.
 - `autoComplete`
   - : `string`. The autocomplete hint passed to the underlying input element.
+- `theme`
+  - : `string`. Controls the design and the feel of the input. See the [Themes list](/guide/themes) for a full list.
 - `background`
   - : `string`. Controls the input background color and feel.
 - `color`
@@ -48,11 +53,16 @@ A config-driven animated input component with support for default coloring style
 ## Example
 
 ```jsx
-import { DyvixInput, DYVIX_GLOBAL_ANIMATION } from 'dyvix-ui';
+import {
+  DyvixInput,
+  DYVIX_GLOBAL_ANIMATION,
+  DYVIX_GLOBAL_THEME
+} from 'dyvix-ui';
 function InputExample() {
   return (
     <DyvixInput
       animation={DYVIX_GLOBAL_ANIMATION.AURORA}
+      theme={DYVIX_GLOBAL_THEME.MIDNIGHT}
       type="text"
       placeholder="Enter your name"
       onChange={(e) => {

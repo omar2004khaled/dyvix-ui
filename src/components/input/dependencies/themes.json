@@ -40,6 +40,11 @@
     "default-animation": "drop"
   },
   {
+    "theme": "Ocean",
+    "class": "dyvix-input-ocean",
+    "default-animation": "flip"
+  },
+  {
     "theme": "Forest",
     "class": "dyvix-input-forest",
     "default-animation": "glide"
@@ -48,5 +53,10 @@
     "theme": "Midnight",
     "class": "dyvix-input-midnight",
     "default-animation": "drift"
+  },
+  {
+    "theme": "Crimson",
+    "class": "dyvix-input-crimson",
+    "default-animation": "float"
   }
 ]

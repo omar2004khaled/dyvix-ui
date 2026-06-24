@@ -1,6 +1,6 @@
 import React from 'react';
 import './dependencies/style/style.css';
-import { EvaluateFailure, GaurdStatus } from '../../utils/DyvixGuard';
+import { EvaluateFailure, GuardStatus } from '../../utils/DyvixGuard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Validatebtn } from './validation';
@@ -10,7 +10,7 @@ import Version from '../../../package.json';
  * @param {Object} props
  * @param {string} [props.animation] - Animation name, defaults to fade
  * @param {string} [props.className] - Button className
- * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora')} props.theme - Modal theme
+ * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} props.theme - Button theme
  * @param {string} [props.background] - Button background color
  * @param {string} [props.color] - Button color
  * @param {Function} [props.onClick] - Click callback
@@ -49,7 +49,7 @@ function DyvixButton({
         instanceId
       );
 
-      if (validator.status === GaurdStatus.Error) {
+      if (validator.status === GuardStatus.Error) {
         return EvaluateFailure(validator.error, validator.status);
       }
     }

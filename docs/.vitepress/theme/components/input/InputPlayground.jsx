@@ -1,7 +1,7 @@
 import { DyvixInput } from 'dyvix-ui';
 import Wrapper from '../Wrapper';
 import React from 'react';
-import { DYVIX_GLOBAL_ANIMATION } from 'dyvix-ui';
+import { DYVIX_GLOBAL_ANIMATION, DYVIX_GLOBAL_THEME } from 'dyvix-ui';
 
 export default function InputPlayground() {
   const [config, setConfig] = React.useState([
@@ -19,6 +19,14 @@ export default function InputPlayground() {
       },
       current: 'text',
       format: 'string'
+    },
+    {
+      utility: 'theme',
+      type: 'select',
+      options: DYVIX_GLOBAL_THEME,
+      current: DYVIX_GLOBAL_THEME.OCEAN,
+      format: 'string',
+      allowNull: false
     },
     {
       utility: 'animation',
@@ -60,7 +68,7 @@ export default function InputPlayground() {
     {
       utility: 'background',
       type: 'color',
-      current: '#32374e',
+      current: undefined,
       format: 'string'
     },
     {
@@ -72,6 +80,7 @@ export default function InputPlayground() {
   ]);
 
   const type = config.find((e) => e.utility === 'type').current;
+  const theme = config.find((e) => e.utility === 'theme').current;
   const animation = config.find((e) => e.utility === 'animation').current;
   const placeholder = config.find((e) => e.utility === 'placeholder').current;
   const name = config.find((e) => e.utility === 'name').current;
@@ -83,6 +92,7 @@ export default function InputPlayground() {
 
   const props = {
     ...(type && { type }),
+    ...(theme && { theme }),
     ...(animation && { animation }),
     ...(placeholder && { placeholder }),
     ...(name && { name }),

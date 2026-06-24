@@ -29,6 +29,12 @@ export default function ModalPlayground() {
       allowNull: false
     },
     {
+      utility: 'background',
+      type: 'color',
+      current: undefined,
+      format: 'string'
+    },
+    {
       utility: 'title',
       type: 'text',
       current: 'Register',
@@ -116,6 +122,7 @@ export default function ModalPlayground() {
 
   const theme = config.find((e) => e['utility'] === 'theme').current;
   const animation = config.find((e) => e['utility'] === 'animation').current;
+  const background = config.find((e) => e['utility'] === 'background')?.current;
   const title = config.find((e) => e['utility'] === 'title').current;
   const type = config.find((e) => e['utility'] === 'type').current;
   const elements = config.find((e) => e['utility'] === 'elements').current;
@@ -124,6 +131,7 @@ export default function ModalPlayground() {
   const probs = {
     ...(theme && { theme: theme }),
     ...(animation && { animation: animation }),
+    ...(background && { background: background }),
     ...(title && { title: title }),
     ...(type && { type: type }),
     ...(elements && { elements: elements }),
