@@ -188,17 +188,14 @@
 .dyvix-table-neon {
   border-radius: 1rem;
   font-family: 'Geist';
-
-  background: #0a0a0a;
   background: radial-gradient(
     circle,
-    rgba(20, 20, 30, 1) 0%,
-    rgba(10, 10, 15, 1) 100%
+    rgba(77, 238, 234, 0.15) 0%,   /* Cyan with 15% opacity */
+    rgba(112, 186, 239, 0.1) 43%,   /* Soft blue with 10% opacity */
+    rgba(240, 0, 255, 0.15) 100%    /* Magenta with 15% opacity */
   );
-
   border: 2px solid rgba(77, 238, 234, 0.5);
   color: #e0fffe;
-
   box-shadow:
     0 0 40px rgba(252, 46, 255, 0.3),
     0 0 80px rgba(77, 238, 234, 0.1),
@@ -242,3 +239,4 @@
 
   transform: translateY(-2px) scale(1.01);
 }
+
