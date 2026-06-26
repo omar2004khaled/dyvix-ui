@@ -91,7 +91,8 @@ function DyvixSelect({
     }));
   };
   const currentAnimation = animation ? configs['animation'] : null;
-  className = `dyvix-select-wrapper${className !== '' ? ` ${className}` : ''}`;
+  className =
+    `dyvix-select-wrapper${className !== '' ? ` ${className}` : ''}`.trim();
 
   React.useEffect(() => {
     async function validate() {
@@ -165,44 +166,52 @@ function DyvixSelect({
     className: className,
     style: style
   };
+  const inputProps = {
+    autoComplete: 'off',
+    role: 'combobox',
+    'aria-autocomplete': 'list',
+    'aria-expanded': Select.is_open,
+    'aria-haspopup': 'listbox',
+    className: `dyvix-select-input`,
+    type: 'text',
+    ...rest,
+    ref: selectRef,
+    placeholder: placeholder || undefined,
+    onChange: (e) => {
+      PopulateSelect(e.target.value, SetSelect, elements);
+      onChangeInternalCallback(e.target.value);
+    },
+    onFocus: (e) => {
+      TranslateEngineType(e.target.value, 'focus', SetSelect);
+      if (rest.onFocus) rest.onFocus(e);
+    },
+    onBlur: (e) => {
+      TranslateEngineType(e.target.value, 'blur', SetSelect);
+      if (rest.onBlur) rest.onBlur(e);
+    },
+    onKeyDown: (e) => {
+      HandleKey(e, SetSelect);
+      if (rest.onKeyDown) rest.onKeyDown(e);
+    }
+  };
+
+  const engineProps = {
+    elements: Select.elements,
+    is_open: Select.is_open,
+    is_rendered: Select.is_rendered,
+    inputRef: selectRef,
+    activeIndex: Select.activeIndex,
+    ref: dropdownSelectRef,
+    controller: SetSelect,
+    OnChangeCallback: (value) => onChangeInternalCallback(value),
+    placeholder: placeholder || undefined
+  };
 
   return (
     <div {...props} ref={selectWrapperRef}>
-      <div className={`dyvix-select`}>
-        <input
-          {...rest}
-          autoComplete="off"
-          role="combobox"
-          aria-autocomplete="list"
-          aria-expanded={Select.is_open}
-          aria-haspopup="listbox"
-          className={`dyvix-select-input`}
-          type="text"
-          ref={selectRef}
-          placeholder={placeholder}
-          onChange={(e) => {
-            PopulateSelect(e.target.value, SetSelect, elements);
-            onChangeInternalCallback(e.target.value);
-          }}
-          onFocus={(e) => {
-            TranslateEngineType(e.target.value, 'focus', SetSelect);
-          }}
-          onBlur={(e) => {
-            TranslateEngineType(e.target.value, 'blur', SetSelect);
-          }}
-          onKeyDown={(e) => HandleKey(e, SetSelect)}
-        />
-        <SelectEngine
-          elements={Select.elements}
-          is_open={Select.is_open}
-          is_rendered={Select.is_rendered}
-          inputRef={selectRef}
-          activeIndex={Select.activeIndex}
-          ref={dropdownSelectRef}
-          controller={SetSelect}
-          OnChangeCallback={(value) => onChangeInternalCallback(value)}
-          placeholder={placeholder}
-        />
+      <div className="dyvix-select">
+        <input {...inputProps} />
+        <SelectEngine {...engineProps} />
       </div>
     </div>
   );

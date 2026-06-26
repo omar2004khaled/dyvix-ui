@@ -406,7 +406,9 @@ function Modal({
                       style: {
                         fontSize: fontSize,
                         fontWeight: fontWeight,
-                        ...(elementDef['tag'] !== 'DyvixInput' && {...themeInputStyle})
+                        ...(elementDef['tag'] !== 'DyvixInput' && {
+                          ...themeInputStyle
+                        })
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
@@ -484,10 +486,7 @@ function Modal({
                         ) : (
                           <Tag key={j} {...Tagprobs} />
                         )}
-                        <span
-                          className="dyvix-error-text"
-                          id={ErrorId}
-                        >
+                        <span className="dyvix-error-text" id={ErrorId}>
                           {fieldError}
                         </span>
                       </div>

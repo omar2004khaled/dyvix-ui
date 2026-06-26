@@ -14,7 +14,14 @@ const CacheMapping = {
 };
 const supportedTypes = ['select', 'autocomplete'];
 
-export async function ValidateSelect(elements, type, animation, theme, callback, instance) {
+export async function ValidateSelect(
+  elements,
+  type,
+  animation,
+  theme,
+  callback,
+  instance
+) {
   let normalizedAnimation = animation?.trim().toLowerCase();
 
   const isAnimation = await ValidatAndLoadJSON(
@@ -30,11 +37,17 @@ export async function ValidateSelect(elements, type, animation, theme, callback,
       error: 'Please provide a valid animation.'
     };
   }
-    if (!Array.isArray(elements)) {
-    return { status: GuardStatus.Error, error: 'Elements should be included as an array.' };
+  if (!Array.isArray(elements)) {
+    return {
+      status: GuardStatus.Error,
+      error: 'Elements should be included as an array.'
+    };
   }
   if (!supportedTypes.includes(type)) {
-    return { status: GuardStatus.Error, error: 'Please provide a valid select type.' };
+    return {
+      status: GuardStatus.Error,
+      error: 'Please provide a valid select type.'
+    };
   }
 
   return { status: GuardStatus.Success };

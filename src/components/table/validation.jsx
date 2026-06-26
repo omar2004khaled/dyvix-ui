@@ -66,7 +66,11 @@ export async function ValidateTable(
       };
     }
     const isMalformed = columns.some(
-      (col) => typeof col !== 'object' || col === null || col.key === undefined || (col.sortable !== undefined && typeof col.sortable !== 'boolean')
+      (col) =>
+        typeof col !== 'object' ||
+        col === null ||
+        col.key === undefined ||
+        (col.sortable !== undefined && typeof col.sortable !== 'boolean')
     );
 
     if (isMalformed) {

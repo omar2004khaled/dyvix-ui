@@ -10,7 +10,7 @@ const SelectEngine = forwardRef(
       is_open,
       is_rendered,
       selectedElement = '',
-      placeholder = 'Select...',
+      placeholder = '',
       controller,
       activeIndex,
       inputRef,

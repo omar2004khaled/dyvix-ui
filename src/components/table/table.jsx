@@ -54,34 +54,34 @@ function DyvixTable({
     }
   };
   const processedData = React.useMemo(() => {
-    if(!data || !columns) return [];
-    if(!sortConfig.length) return data;
+    if (!data || !columns) return [];
+    if (!sortConfig.length) return data;
 
     return [...data].sort((a, b) => {
-      for (const {key, direction} of sortConfig)
-      {
+      for (const { key, direction } of sortConfig) {
         if (direction === 'none') continue;
         const aVal = a[key];
         const bVal = b[key];
 
         let result = 0;
 
-        if(typeof aVal === 'number' && typeof bVal === 'number') {
+        if (typeof aVal === 'number' && typeof bVal === 'number') {
           result = aVal - bVal;
-        }
-        else {
+        } else {
           result = String(aVal).localeCompare(String(bVal));
         }
 
-        if(result !== 0) return direction === 'asc' ? result: -result;
+        if (result !== 0) return direction === 'asc' ? result : -result;
       }
 
       return 0;
-    })
-  }, [columns, data, isValid, sortConfig])
+    });
+  }, [columns, data, isValid, sortConfig]);
 
   const ConstructTable = () => {
-    const bodyRows = processedData.map((row) => columns.map((col) => row[col.key]));
+    const bodyRows = processedData.map((row) =>
+      columns.map((col) => row[col.key])
+    );
     const handleSortClick = (key) => {
       const isfound = sortConfig?.find((config) => config['key'] === key);
 
@@ -111,11 +111,13 @@ function DyvixTable({
           <DyvixTableRow>
             {columns.map((col, i) => {
               const isColumnSortable = col.sortable === true;
-              const activeSort = isColumnSortable ? sortConfig.find((config) => config.key === col.key): null;
+              const activeSort = isColumnSortable
+                ? sortConfig.find((config) => config.key === col.key)
+                : null;
               let sortIndicator = null;
 
-              if(activeSort) {
-                if(activeSort.direction === 'asc') {
+              if (activeSort) {
+                if (activeSort.direction === 'asc') {
                   sortIndicator = ' ▲';
                 } else if (activeSort.direction === 'desc') {
                   sortIndicator = ' ▼';
@@ -130,7 +132,11 @@ function DyvixTable({
                   })}
                 >
                   {typeof col === 'string' ? col : col.label}
-                  {isColumnSortable && <span className='dyvix-table-sort-icon'>{sortIndicator || ' ↕'}</span>}
+                  {isColumnSortable && (
+                    <span className="dyvix-table-sort-icon">
+                      {sortIndicator || ' ↕'}
+                    </span>
+                  )}
                 </DyvixTableHead>
               );
             })}
