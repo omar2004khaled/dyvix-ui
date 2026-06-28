@@ -1,14 +1,12 @@
 .dyvix-select-wrapper {
   width: fit-content;
   height: fit-content;
+  position: relative;
+  z-index: 1;
 }
 .dyvix-select {
-  width: 12rem;
+  width: 100%;
   transition: all 0.5s ease-in-out;
-  position: relative;
-}
-.dyvix-select:hover {
-  transform: scale(1.02);
 }
 .dyvix-select-input {
   background-color: rgba(255, 255, 255, 0.02);
@@ -47,19 +45,20 @@
 }
 .dyvix-dropdown-select {
   position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 2px 0 0 0; 
   list-style: none !important;
   text-align: left;
-  width: 100%;
   max-height: 150px;
   overflow-y: auto;
   z-index: 1000;
-  padding: 0;
+  padding: 4px 0;
   border-radius: 8px;
   background-color: rgb(20, 22, 24);
   border: 1px solid rgb(35, 40, 45);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  margin-left: 10px;
-  margin-top: 0.1rem;
 }
 .dyvix-dropdown-select::-webkit-scrollbar {
   width: 5px;
@@ -71,17 +70,16 @@
   background-color: #06b6d4;
   border-radius: 25px;
 }
+
 .dyvix-dropdown-select li {
-  background-color: whitesmoke;
-  border-bottom: gainsboro 0.1px solid;
-  height: 20px !important;
-  font-size: xx-small;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid rgb(35, 40, 45);
   padding: 10px 12px;
   font-size: 0.9rem;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-left: 0.4rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  margin-left: 0;
 }
 .dyvix-dropdown-select li:active {
   background-color: #b2ebf2;

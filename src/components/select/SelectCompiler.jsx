@@ -211,8 +211,8 @@ function DyvixSelect({
     <div {...props} ref={selectWrapperRef}>
       <div className="dyvix-select">
         <input {...inputProps} />
-        <SelectEngine {...engineProps} />
       </div>
+      <SelectEngine {...engineProps} />
     </div>
   );
 }

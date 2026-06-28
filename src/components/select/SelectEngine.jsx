@@ -63,16 +63,6 @@ const SelectEngine = forwardRef(
       }
     }, [is_open, elements]);
 
-    useEffect(() => {
-      const observer = new ResizeObserver(() => {
-        ref.current.style.width = inputRef.current.offsetWidth - 20 + 'px';
-        ref.current.style.marginLeft = 5;
-      });
-
-      observer.observe(inputRef.current);
-
-      return () => observer.disconnect();
-    }, []);
 
     useEffect(() => {
       if (activeIndex >= 0 && itemsRef.current[activeIndex]) {
