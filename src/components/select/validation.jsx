@@ -10,6 +10,10 @@ const CacheMapping = {
   animation: {
     jsonpath: '../../components/animations.json',
     csspath: null
+  },
+  theme: {
+    jsonpath: '../../components/select/dependencies/themes.json',
+    csspath: '../../components/select/dependencies/style/themes.css'
   }
 };
 const supportedTypes = ['select', 'autocomplete'];
@@ -23,7 +27,19 @@ export async function ValidateSelect(
   instance
 ) {
   let normalizedAnimation = animation?.trim().toLowerCase();
-
+  const normalizedTheme =
+    theme?.trim().charAt(0).toUpperCase() + theme.trim().slice(1);
+  const isTheme = await ValidatAndLoadJSON(
+    CacheMapping,
+    normalizedTheme,
+    callback,
+    'theme',
+    component,
+    instance
+  );
+  if (normalizedAnimation === '!/' && isTheme?.config?.theme) {
+    normalizedAnimation = isTheme?.config?.theme['default-animation'];
+  }
   const isAnimation = await ValidatAndLoadJSON(
     CacheMapping,
     normalizedAnimation,

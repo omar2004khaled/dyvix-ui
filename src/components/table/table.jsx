@@ -183,7 +183,7 @@ function DyvixTable({
       const ele = document.getElementById(key);
       if (ele) ele.remove();
     };
-  }, [animation, columns, data]);
+  }, [animation, theme, columns, data]);
   useGSAP(() => {
     if (!tableRef.current || !currentAnimation) return;
 

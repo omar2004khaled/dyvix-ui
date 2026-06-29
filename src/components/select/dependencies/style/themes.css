@@ -1,0 +1,39 @@
+.dyvix-select-lens .dyvix-select-input-lens {
+  border: 2px solid #3c0349;
+  background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
+  color: white;
+  box-shadow: 0 0 12px rgba(185, 3, 226, 0.3);
+  border-radius: 8px;
+}
+.dyvix-select-lens .dyvix-select-input-lens:hover {
+  border-color: #7a0499;
+  box-shadow: 0 0 20px rgba(185, 3, 226, 0.45);
+}
+.dyvix-select-lens .dyvix-select-input-lens:focus {
+  border-color: #b903e2;
+  box-shadow: 0 0 25px rgba(185, 3, 226, 0.6);
+  background: radial-gradient(circle, #0d0d0d 0%, #1a1a1a 100%);
+}
+.dyvix-select-lens .dyvix-select-input-lens::placeholder {
+  color: rgba(185, 3, 226, 0.4);
+}
+.dyvix-select-lens .dyvix-select-dropdown-lens {
+  background: #0d0d0d;
+  border: 1px solid rgba(185, 3, 226, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(185, 3, 226, 0.2);
+  --dyvix-select-active-bg: #8b5cf6;
+  --dyvix-select-active-text: #ffffff;
+}
+.dyvix-select-lens .dyvix-select-dropdown-lens li {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(185, 3, 226, 0.1);
+}
+.dyvix-select-lens .dyvix-select-dropdown-lens li:hover {
+  background: rgba(185, 3, 226, 0.15);
+  color: white;
+}
+.dyvix-select-lens .dyvix-select-dropdown-lens::-webkit-scrollbar-thumb {
+  background: rgba(185, 3, 226, 0.6);
+}
