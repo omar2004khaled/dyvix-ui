@@ -299,7 +299,7 @@
   font-family: 'Geist';
   background-color: #0a1429;
   color: #e5e7eb;
-  border: 4px solid #374151;
+  border: 4px solid #6a6a6a;
 
   box-shadow:
     inset 0 0 20px rgba(106, 106, 106, 0.1),
@@ -313,7 +313,7 @@
 }
 
 .dyvix-table-industrial:hover {
-  border-color: #6a6a6a;
+  border-color: #9ca3af;
   background-color: #101f39;
 
   box-shadow:
