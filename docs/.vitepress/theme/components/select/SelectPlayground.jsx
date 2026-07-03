@@ -52,7 +52,7 @@ export default function SelectPlayground() {
     <Wrapper
       componentConfig={config}
       componentCallback={setConfig}
-      tag={'DynamicSelect'}
+      tag={'DyvixSelect'}
     >
       <DyvixSelect
         className="ex-select"
