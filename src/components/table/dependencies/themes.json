@@ -47,7 +47,6 @@
   {
     "theme": "Industrial",
     "class": "dyvix-table-industrial",
-    "default-animation": "fade",
-    "radiused": false
+    "default-animation": "fade"
   }
 ]
