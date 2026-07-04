@@ -72,7 +72,6 @@ const SelectEngine = forwardRef(
         itemsRef.current[activeIndex].scrollIntoView({ block: 'nearest' });
       }
     }, [activeIndex]);
-    console.log(background);
     return (
       <>
         {is_rendered && (
