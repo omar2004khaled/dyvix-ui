@@ -19,3 +19,5 @@ export function SelectTest() {
     />
   );
 }
+// Add this to your Select component in devbench
+theme={DYVIX_GLOBAL_THEME.INDUSTRIAL}
