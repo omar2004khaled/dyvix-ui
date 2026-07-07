@@ -418,7 +418,7 @@
 }
 
 .dyvix-table-frost:hover {
-  border: 8px groove #f8f8f840;
+  border: 5.5px groove #f8f8f840;
   transform: scale(1.01);
   box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
   -webkit-box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
