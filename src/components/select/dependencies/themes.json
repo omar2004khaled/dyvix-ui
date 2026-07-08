@@ -12,5 +12,12 @@
     "input-class": "dyvix-select-input-industrial",
     "dropdown-class": "dyvix-select-dropdown-industrial",
     "default-animation": "fade"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-select-blade",
+    "input-class": "dyvix-select-input-blade",
+    "dropdown-class": "dyvix-select-dropdown-blade",
+    "default-animation": "drift"
   }
 ]
