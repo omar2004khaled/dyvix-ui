@@ -24,3 +24,4 @@ Dyvix provides a wide range of themes. You can trigger these by passing the stri
 - `DYVIX_GLOBAL_THEME.OCEAN`: `'Ocean'`
 - `DYVIX_GLOBAL_THEME.FOREST`: `'Forest'`
 - `DYVIX_GLOBAL_THEME.MIDNIGHT`: `'Midnight'`
+- `DYVIX_GLOBAL_THEME.OBSIDIAN`: `'Obsidian'`
