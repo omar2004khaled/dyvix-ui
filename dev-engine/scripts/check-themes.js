@@ -12,8 +12,17 @@ let result = [];
 
 if (targetComponent !== '*') {
   const missing = getMissingThemes(targetComponent);
-  const status = missing[0] !== 'LACKS_THEME_SUPPORT'? (missing?.length === 0 ? 'complete': 'missing'): 'unsupported';
-  result.push({ 'component': targetComponent, 'status': status, 'missingThemes': missing });
+  const status =
+    missing[0] !== 'LACKS_THEME_SUPPORT'
+      ? missing?.length === 0
+        ? 'complete'
+        : 'missing'
+      : 'unsupported';
+  result.push({
+    component: targetComponent,
+    status: status,
+    missingThemes: missing
+  });
 } else {
   const componentMap = fs
     .readdirSync(CMP_PATH, { withFileTypes: true })
@@ -22,8 +31,13 @@ if (targetComponent !== '*') {
 
   for (const cmp of componentMap) {
     const missing = getMissingThemes(cmp);
-    const status = missing[0] !== 'LACKS_THEME_SUPPORT'? (missing?.length === 0 ? 'complete': 'missing'): 'unsupported';
-    result.push({ 'component': cmp, 'status': status, 'missingThemes': missing });
+    const status =
+      missing[0] !== 'LACKS_THEME_SUPPORT'
+        ? missing?.length === 0
+          ? 'complete'
+          : 'missing'
+        : 'unsupported';
+    result.push({ component: cmp, status: status, missingThemes: missing });
   }
 }
 

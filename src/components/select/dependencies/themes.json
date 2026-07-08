@@ -19,5 +19,10 @@
     "input-class": "dyvix-select-input-blade",
     "dropdown-class": "dyvix-select-dropdown-blade",
     "default-animation": "drift"
+    "theme": "Ember",
+    "class": "dyvix-select-ember",
+    "input-class": "dyvix-select-input-ember",
+    "dropdown-class": "dyvix-select-dropdown-ember",
+    "default-animation": "glitch"
   }
 ]

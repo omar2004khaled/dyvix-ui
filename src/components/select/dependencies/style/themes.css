@@ -18,7 +18,7 @@
   color: rgba(185, 3, 226, 0.4);
 }
 .dyvix-select-lens .dyvix-select-dropdown-lens {
-  background: #0d0d0d;
+  background: var(--dyvix-select-dropdown-color, #0d0d0d);
   border: 1px solid rgba(185, 3, 226, 0.3);
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(185, 3, 226, 0.2);
@@ -46,14 +46,15 @@
   border-radius: 0px;
 }
 .dyvix-select-industrial .dyvix-select-dropdown-industrial {
-  background: #2c3e50;
+  background: var(--dyvix-select-dropdown-color, #2c3e50);
   border: 1px solid #374151;
   border-radius: 0px;
 }
 .dyvix-select-industrial .dyvix-select-dropdown-industrial li {
   color: #ffffff;
 }
-.dyvix-select-industrial .dyvix-select-dropdown-industrial::-webkit-scrollbar-thumb {
+.dyvix-select-industrial
+  .dyvix-select-dropdown-industrial::-webkit-scrollbar-thumb {
   background: #0a1429;
 }
 .dyvix-select-blade .dyvix-select-input-blade {
@@ -65,4 +66,56 @@
   background: #1a1a1a;
   border: 1px solid #ff4500;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+/* Ember Theme */
+.dyvix-select-ember .dyvix-select-input-ember {
+  background: #0f0a08;
+  border: none;
+  border-bottom: 3px solid #ff4500;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow:
+    0px 8px 12px -6px rgba(255, 69, 0, 0.6),
+    0px 0px 20px -8px rgba(255, 69, 0, 0.3);
+  transition:
+    border-bottom 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.dyvix-select-ember .dyvix-select-input-ember:hover {
+  border-bottom-color: #ff6b00;
+  box-shadow:
+    0px 10px 18px -6px rgba(255, 69, 0, 0.8),
+    0px 0px 30px -6px rgba(255, 69, 0, 0.45);
+}
+
+.dyvix-select-ember .dyvix-select-input-ember:focus {
+  border-bottom-color: #ff6b00;
+  outline: none;
+}
+
+.dyvix-select-ember .dyvix-select-input-ember::placeholder {
+  color: rgba(255, 160, 122, 0.6);
+}
+
+.dyvix-select-ember .dyvix-select-dropdown-ember {
+  background: var(--dyvix-select-dropdown-color, #0f0a08);
+  border: 1px solid rgba(255, 69, 0, 0.35);
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px rgba(255, 69, 0, 0.2);
+
+  --dyvix-select-active-bg: #ff4500;
+  --dyvix-select-active-text: #ffffff;
+}
+
+.dyvix-select-ember .dyvix-select-dropdown-ember li {
+  color: #ffffff;
+}
+
+.dyvix-select-ember .dyvix-select-dropdown-ember li:hover {
+  background: rgba(255, 69, 0, 0.15);
+}
+
+.dyvix-select-ember .dyvix-select-dropdown-ember::-webkit-scrollbar-thumb {
+  background: rgba(255, 69, 0, 0.6);
 }
