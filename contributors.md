@@ -47,4 +47,3 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@Mahnoor-Zaffar](https://github.com/Mahnoor-Zaffar)
 - [@amna-sehgal](https://github.com/amna-sehgal)
 - [@saumyabaranwal](https://github.com/saumyabaranwal)
-

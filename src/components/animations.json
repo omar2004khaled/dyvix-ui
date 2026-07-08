@@ -97,19 +97,19 @@
     "to": { "y": 0, "opacity": 1, "scale": 1 }
   },
   {
-  "animation": "swing",
-  "type": "in",
-  "default-duration": 1.1,
-  "ease": "back.out(2)",
-  "from": {
-    "rotation": -15,
-    "y": -40,
-    "opacity": 0
-  },
-  "to": {
-    "rotation": 0,
-    "y": 0,
-    "opacity": 1
+    "animation": "swing",
+    "type": "in",
+    "default-duration": 1.1,
+    "ease": "back.out(2)",
+    "from": {
+      "rotation": -15,
+      "y": -40,
+      "opacity": 0
+    },
+    "to": {
+      "rotation": 0,
+      "y": 0,
+      "opacity": 1
+    }
   }
-}
 ]
