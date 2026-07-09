@@ -110,3 +110,53 @@
 .dyvix-select-ember .dyvix-select-dropdown-ember::-webkit-scrollbar-thumb {
   background: rgba(255, 69, 0, 0.6);
 }
+
+/* Neon Theme */
+.dyvix-select-neon .dyvix-select-input-neon {
+  border: 2px solid rgba(252, 46, 255, 0.4);
+  background: radial-gradient(
+    circle,
+    rgba(77, 238, 234, 1) 0%,
+    rgba(112, 186, 239, 1) 43%,
+    rgba(240, 0, 255, 1) 100%
+  );
+  color: #ffffff;
+  box-shadow: 0px 0px 24px rgba(252, 46, 255, 0.5);
+  border-radius: 2rem;
+  transition:
+    border-radius 0.2s ease-in-out,
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+.dyvix-select-neon .dyvix-select-input-neon:hover {
+  border-radius: 1rem;
+  transform: scale(1.01);
+  box-shadow: 0px 0px 40px rgba(252, 46, 255, 0.7);
+}
+.dyvix-select-neon .dyvix-select-input-neon:focus {
+  border-color: rgba(252, 46, 255, 0.8);
+  outline: none;
+}
+.dyvix-select-neon .dyvix-select-input-neon::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dyvix-select-neon .dyvix-select-dropdown-neon {
+  background: var(--dyvix-select-dropdown-color, #0d0d0d);
+  border: 1px solid rgba(252, 46, 255, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 30px rgba(252, 46, 255, 0.3);
+  --dyvix-select-active-bg: #f02eff;
+  --dyvix-select-active-text: #ffffff;
+}
+.dyvix-select-neon .dyvix-select-dropdown-neon li {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(252, 46, 255, 0.15);
+}
+.dyvix-select-neon .dyvix-select-dropdown-neon li:hover {
+  background: rgba(252, 46, 255, 0.2);
+  color: white;
+}
+.dyvix-select-neon .dyvix-select-dropdown-neon::-webkit-scrollbar-thumb {
+  background: rgba(252, 46, 255, 0.6);
+}
