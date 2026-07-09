@@ -31,7 +31,8 @@ export const DYVIX_GLOBAL_ANIMATION = {
   FLIP: 'flip',
   GLIDE: 'glide',
   DRIFT: 'drift',
-  FLOAT: 'float'
+  FLOAT: 'float',
+  SWING: 'swing'
 };
 export const DYVIX_MODAL_VALIDATION_PRESET = {
   EMAIL: 'email',
