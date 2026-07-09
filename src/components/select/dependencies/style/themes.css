@@ -57,15 +57,37 @@
   .dyvix-select-dropdown-industrial::-webkit-scrollbar-thumb {
   background: #0a1429;
 }
+/* Blade Theme */
 .dyvix-select-blade .dyvix-select-input-blade {
-  background: #1a1a1a;
-  border: 1px solid #ff4500;
+  font-family: 'Geist';
+  border: 2px solid #374151;
+  border-radius: 8px;
+  background-color: #0a1429;
+  padding: 0.75rem;
   color: #ffffff;
+  transition:
+    box-shadow ease-in-out 0.4s,
+    border-color ease-in-out 0.3s,
+    background-color ease-in-out 0.2s;
+}
+.dyvix-select-blade .dyvix-select-input-blade:hover {
+  border-color: #6a6a6a;
+  background-color: #101f39;
 }
 .dyvix-select-blade .dyvix-select-dropdown-blade {
-  background: #1a1a1a;
-  border: 1px solid #ff4500;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 0.5rem;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  background-color: #0a1429;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+}
+
+.dyvix-select-blade .dyvix-select-dropdown-blade li:hover {
+  background: rgba(255, 69, 0, 0.15);
+  color: #ffffff;
+  cursor: pointer;
+}
 /* Ember Theme */
 .dyvix-select-ember .dyvix-select-input-ember {
   background: #0f0a08;
