@@ -331,3 +331,58 @@
 .dyvix-modal-obsidian > div > .modal-text {
   color: #e5edff;
 }
+/* Aurora Theme */
+
+.dyvix-select-aurora .dyvix-select-input-aurora {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 232, 30, 1) 0%,
+    rgba(0, 234, 141, 1) 21%,
+    rgba(1, 177, 179, 1) 46%,
+    rgba(1, 126, 213, 1) 76%,
+    rgba(181, 61, 255, 1) 100%
+  );
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 0 18px rgba(1, 176, 179, 0.45);
+}
+
+.dyvix-select-aurora .dyvix-select-input-aurora:hover {
+  box-shadow: 0 0 24px rgba(1, 176, 179, 0.7);
+}
+
+.dyvix-select-aurora .dyvix-select-input-aurora:focus {
+  box-shadow: 0 0 30px rgba(1, 176, 179, 0.9);
+}
+
+.dyvix-select-aurora .dyvix-select-input-aurora::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dyvix-select-aurora .dyvix-select-dropdown-aurora {
+  background: linear-gradient(
+    180deg,
+    #00b0b3 0%,
+    #017ed5 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  box-shadow: 0 0 24px rgba(1, 176, 179, 0.45);
+
+  --dyvix-select-active-bg: #b53dff;
+  --dyvix-select-active-text: #ffffff;
+}
+
+.dyvix-select-aurora .dyvix-select-dropdown-aurora li {
+  color: white;
+}
+
+.dyvix-select-aurora .dyvix-select-dropdown-aurora li:hover {
+  background: rgba(181, 61, 255, 0.25);
+}
+
+.dyvix-select-aurora
+  .dyvix-select-dropdown-aurora::-webkit-scrollbar-thumb {
+  background: rgba(1, 176, 179, 0.8);
+}
