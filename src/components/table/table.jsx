@@ -19,7 +19,7 @@ import Version from '../../../package.json';
  * @param {('Singularity'|'Crimson')} [props.theme] - Table theme
  * @param {string} [props.background] - Custom background color
  * @param {string} [props.color] - Custom text color
- * @param {Array<{key: string, label: string}>} [props.columns] - Column definitions for config-driven mode
+ * @param {Array<{key: string, label: string, sortable?: boolean}>} [props.columns] - Column definitions for config-driven mode
  * @param {Array<Object>} [props.data] - Row data for config-driven mode, keys must match column keys
  * @param {Object} [props.style] - Inline style overrides
  */

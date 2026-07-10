@@ -197,28 +197,37 @@ function Modal({
   const ROW_GAP = 25;
   const BASEHEIGHT = 200; // Ceiling space + Floor space combined
 
-  let TOTAL_HEIGHT = BASEHEIGHT + fields?.reduce((acc, field, index) => {
-    const type = field.type
-    const gap = index < fields.length - 1 ? ROW_GAP: 0;
-    return acc + (ROW_HEIGHT[type] || ROW_HEIGHT.text) + gap;
-  }, 0);
+  let TOTAL_HEIGHT =
+    BASEHEIGHT +
+    fields?.reduce((acc, field, index) => {
+      const type = field.type;
+      const gap = index < fields.length - 1 ? ROW_GAP : 0;
+      return acc + (ROW_HEIGHT[type] || ROW_HEIGHT.text) + gap;
+    }, 0);
 
   const geometryBuffer =
     currentTheme?.radiused || !currentTheme ? (2.5 * fields?.length) / 3 : 0;
   TOTAL_HEIGHT += geometryBuffer * 16;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  const dynamicHeight = isMobile ? `min(${TOTAL_HEIGHT}px, 95vh)` : `${TOTAL_HEIGHT}px`;
+  const dynamicHeight = isMobile
+    ? `min(${TOTAL_HEIGHT}px, 95vh)`
+    : `${TOTAL_HEIGHT}px`;
   const dynamicWidth = `min(${TOTAL_HEIGHT}px, 95vw, 95vh)`;
   const isCentered = fields?.length <= 4;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
 
-  const defaultStyle = !currentTheme ? {
-    ...(!currentTheme && { background: background || 'white' }),
-    fontFamily: 'Geist, sans-serif',
-    borderRadius: '2rem'
-  }: {};
+  const defaultStyle = !currentTheme
+    ? {
+        ...(!currentTheme && { background: background || 'white' }),
+        fontFamily: 'Geist, sans-serif',
+        borderRadius: '2rem'
+      }
+    : {};
   let activeStyle = style || defaultStyle;
-  activeStyle = {...activeStyle, ...((fields?.length > 7 && currentTheme?.radiused) && {borderRadius: '47%'})};
+  activeStyle = {
+    ...activeStyle,
+    ...(fields?.length > 7 && currentTheme?.radiused && { borderRadius: '47%' })
+  };
   const modalStyles = {
     height: dynamicHeight,
     width: dynamicWidth,

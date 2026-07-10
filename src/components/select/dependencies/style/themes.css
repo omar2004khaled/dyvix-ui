@@ -34,7 +34,8 @@
   background: rgba(185, 3, 226, 0.15);
   color: white;
 }
-.dyvix-select-singularity .dyvix-select-dropdown-singularity::-webkit-scrollbar-thumb {
+.dyvix-select-singularity
+  .dyvix-select-dropdown-singularity::-webkit-scrollbar-thumb {
   background: rgba(185, 3, 226, 0.6);
 }
 /* Industrial Theme */
@@ -69,7 +70,7 @@
   transition:
     border-left 0.1s ease-in-out,
     border-top 0.1s ease-in-out,
-    box-shadow 0.2s ease-in-out
+    box-shadow 0.2s ease-in-out;
 }
 .dyvix-select-blade .dyvix-select-input-blade:hover {
   border-left: 3.5px solid #ffffff;

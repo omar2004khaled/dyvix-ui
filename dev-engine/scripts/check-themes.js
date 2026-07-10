@@ -61,7 +61,6 @@ function getMissingThemes(targetComponent) {
   }
 
   globalThemes.forEach((theme) => {
-
     const expectedClass = `.dyvix-${targetComponent}-${theme.toLowerCase()}`;
     const match = CheckCSSClass(expectedClass, rawCSS);
 
