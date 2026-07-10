@@ -55,6 +55,11 @@
     "default-animation": "aurora"
   },
   {
+    "theme": "Obsidian",
+    "class": "dyvix-label-obsidian",
+    "default-animation": "fade"
+  },
+  {
     "theme": "Sunset",
     "class": "dyvix-label-sunset",
     "default-animation": "sunset"
