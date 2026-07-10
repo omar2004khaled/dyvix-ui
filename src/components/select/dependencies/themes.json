@@ -1,9 +1,9 @@
 [
   {
     "theme": "Singularity",
-    "class": "dyvix-select-lens",
-    "input-class": "dyvix-select-input-lens",
-    "dropdown-class": "dyvix-select-dropdown-lens",
+    "class": "dyvix-select-singularity",
+    "input-class": "dyvix-select-input-singularity",
+    "dropdown-class": "dyvix-select-dropdown-singularity",
     "default-animation": "bubble"
   },
   {

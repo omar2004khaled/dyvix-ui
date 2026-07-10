@@ -1,4 +1,4 @@
-.dyvix-file-lens {
+.dyvix-file-singularity {
   border: 4px dashed #3c0349;
   background-color: #1f2937;
   background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
@@ -10,16 +10,16 @@
     background 0.3s ease-in-out,
     transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.dyvix-file-lens p {
+.dyvix-file-singularity p {
   color: whitesmoke;
   transition: color 0.2s ease;
 }
-.dyvix-file-lens:hover {
+.dyvix-file-singularity:hover {
   border-color: #6a2a7a;
   background: rgb(47, 4, 47);
   transform: scale(1.02);
 }
-.dyvix-file-lens:hover p {
+.dyvix-file-singularity:hover p {
   color: grey;
 }
 .dyvix-file-industrial {

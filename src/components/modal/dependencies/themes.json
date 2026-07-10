@@ -1,7 +1,7 @@
 [
   {
     "theme": "Singularity",
-    "class": "dyvix-modal-lens",
+    "class": "dyvix-modal-singularity",
     "default-animation": "bubble",
     "radiused": true
   },

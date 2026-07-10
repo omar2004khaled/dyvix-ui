@@ -1,4 +1,4 @@
-.dyvix-modal-lens {
+.dyvix-modal-singularity {
   font-family: 'Geist';
   border: 4px solid #3c0349;
   color: white;
@@ -15,13 +15,13 @@
     border ease-in-out 0.3s,
     background ease-in-out 0.2s;
 }
-.dyvix-modal-lens:hover {
+.dyvix-modal-singularity:hover {
   border: 4px solid #27032f;
   background: radial-gradient(circle, #000000 0%, #1a1a1a 120%);
   box-shadow: 0 0 50px #b903e2;
   transform: scale(1.02);
 }
-.dyvix-modal-lens > div > .modal-text {
+.dyvix-modal-singularity > div > .modal-text {
   color: white;
 }
 .dyvix-modal-industrial {

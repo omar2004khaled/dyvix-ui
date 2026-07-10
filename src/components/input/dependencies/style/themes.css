@@ -1,4 +1,4 @@
-.dyvix-input-lens {
+.dyvix-input-singularity {
   background: radial-gradient(circle, #000000 0%, #1a1a1a 100%);
   color: #b903e2;
   box-shadow: 0 0 30px #b903e2;
@@ -8,15 +8,15 @@
   border-radius: 10rem;
   transition: all 0.3s ease-in-out;
 }
-.dyvix-input-lens:hover {
+.dyvix-input-singularity:hover {
   border-color: #6a0368;
   box-shadow: 0 0 50px #b903e2;
   transform: scale(1.02);
 }
-.dyvix-input-lens::placeholder {
+.dyvix-input-singularity::placeholder {
   color: whitesmoke;
 }
-.dyvix-input-lens:focus {
+.dyvix-input-singularity:focus {
   border-color: #b903e2;
   box-shadow:
     0 0 50px #b903e2,

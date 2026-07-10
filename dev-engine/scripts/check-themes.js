@@ -61,11 +61,6 @@ function getMissingThemes(targetComponent) {
   }
 
   globalThemes.forEach((theme) => {
-    // temp fix for an inconsistent naming
-    // to be removed
-    if (targetComponent !== 'table') {
-      theme = theme === 'Singularity' ? 'Lens' : theme;
-    }
 
     const expectedClass = `.dyvix-${targetComponent}-${theme.toLowerCase()}`;
     const match = CheckCSSClass(expectedClass, rawCSS);

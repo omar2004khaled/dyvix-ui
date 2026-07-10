@@ -1,7 +1,7 @@
 [
   {
     "theme": "Singularity",
-    "class": "dyvix-button-lens",
+    "class": "dyvix-button-singularity",
     "default-animation": "bubble"
   },
   {
