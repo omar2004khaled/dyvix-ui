@@ -49,3 +49,4 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@saumyabaranwal](https://github.com/saumyabaranwal)
 - [@harshita-777](https://github.com/harshita-777)
 - [@devthedevil](https://github.com/devthedevil)
+- [@mysterio-Apoorva](https://github.com/mysterio-Apoorva)
