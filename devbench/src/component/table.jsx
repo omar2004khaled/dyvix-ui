@@ -12,7 +12,7 @@ export function TableTest() {
     <>
       <DyvixTable
         animation={DYVIX_GLOBAL_ANIMATION.PULSE}
-        theme={DYVIX_GLOBAL_THEME.INDUSTRIAL}
+        theme={DYVIX_GLOBAL_THEME.OBSIDIAN}
         columns={[
           { key: 'id', label: 'ID', sortable: true },
           { key: 'name', label: 'Name', sortable: true },
@@ -29,7 +29,7 @@ export function TableTest() {
         ]}
       />
       <DyvixTable
-        theme={DYVIX_GLOBAL_THEME.INDUSTRIAL}
+        theme={DYVIX_GLOBAL_THEME.OBSIDIAN}
         animation={DYVIX_GLOBAL_ANIMATION.PULSE}
       >
         <DyvixTableHeader>
