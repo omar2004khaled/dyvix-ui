@@ -8,13 +8,20 @@ import { ValidateSelect } from './validation';
 import Version from '../../../package.json';
 
 /**
+ * DyvixSelect component for creating customizable select inputs.
+ *
  * @param {Object} props
- * @param {Array<Object>} props.elements - Array of select elements
- * @param {Function} [props.onChange] - Change callback
- * @param {('select'|'autocomplete')} props.type - Select type
- * @param {string} [props.animation] - Animation name, defaults to fade
- * @param {string} [props.className] - Select class
- * @param {string} [props.placeholder] - Select placeholder
+ * @param {Array<Object>} props.elements - Array of selectable elements
+ * @param {Function} [props.onChange] - Callback triggered when selection changes
+ * @param {('select'|'autocomplete')} [props.type='select'] - Select behavior type
+ * @param {string} [props.animation='fade'] - Animation name for the select
+ * @param {('Singularity'|'Industrial'|'Blade'|'Ember'|'Neon')} [props.theme] - Select theme configuration
+ * @param {string} [props.background] - Background color of the input field
+ * @param {string} [props.dropdownBackground] - Background color of the dropdown
+ * @param {string} [props.className] - Custom CSS class for the select wrapper
+ * @param {string} [props.placeholder] - Placeholder text displayed in the input
+ * @param {Object} [props.style] - Inline styles applied to the wrapper
+ * @param {Object} [props.rest] - Additional input properties passed to the select input
  */
 function DyvixSelect({
   elements = [],
