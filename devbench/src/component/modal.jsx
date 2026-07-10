@@ -9,13 +9,13 @@ export function ModalTest() {
   const types = Object.values(DYVIX_MODAL_ELEMENT);
   const optionatedTypes = ['select', 'd-select', 'autocomplete'];
 
-  const simpleHeightTestData = Array.from({ length: 1 }, (_, i) => ({
+  const simpleHeightTestData = Array.from({ length: 9 }, (_, i) => ({
     type: 'text',
     name: `field_${i}`,
     placeholder: `Extended Field ${i + 1}`,
     amount: 1
   }));
-  const stressTestData = Array.from({ length: 5 }, (_, i) => {
+  const stressTestData = Array.from({ length: 7 }, (_, i) => {
     const randomEleType = types[Math.floor(Math.random() * types.length)];
     let props = { type: randomEleType, amount: (i % 3) + 1 };
     let placeholder = [];
@@ -45,23 +45,10 @@ export function ModalTest() {
       Id="register-modal"
       className="testmodal"
       //background="red"
-      theme={'Crimson'}
       // background={'Red'}
       //  preset={'ResetPassword'}
       type="auth"
-      elements={[
-        {
-          type: 'd-select',
-          amount: 3,
-          placeholder: ['Select Size', 'Choose Color', 'Shipping Method'],
-          name: ['Size', 'Color', 'Method'],
-          options: [
-            ['Small', 'Medium', 'Large'],
-            ['Red', 'Blue', 'Green'],
-            ['Standard', 'Express', 'Prime']
-          ]
-        }
-      ]}
+      elements={stressTestData}
       onSubmit={(data) => console.log(data)}
       onChange={(data) => console.log(data)}
     />

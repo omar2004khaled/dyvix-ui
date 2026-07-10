@@ -187,35 +187,38 @@ function Modal({
   const serilaizedclassName =
     className +
     `${currentTheme?.class ? ` ${currentTheme?.class}` : ''}` +
-    ` ${currentType.class}`;
+    `${currentType?.class ? ` ${currentType.class}` : ''}`;
   // Dynamicily calculate modal sizing and position
-  const heightMap = {
-    1: '19rem',
-    2: '24rem',
-    3: '26rem',
-    4: '31rem',
-    5: '37rem',
-    6: '41rem',
-    7: '46rem',
-    8: '53rem',
-    9: '57rem'
+  // text row height seem to be suitable for other elements
+  // Add more mapping keys if other elements started spacing weird
+  const ROW_HEIGHT = {
+    text: 56
   };
-  let idealSize = heightMap[fields?.length] || '26rem';
+  const ROW_GAP = 25;
+  const BASEHEIGHT = 200; // Ceiling space + Floor space combined
+
+  let TOTAL_HEIGHT = BASEHEIGHT + fields?.reduce((acc, field, index) => {
+    const type = field.type
+    const gap = index < fields.length - 1 ? ROW_GAP: 0;
+    return acc + (ROW_HEIGHT[type] || ROW_HEIGHT.text) + gap;
+  }, 0);
+
   const geometryBuffer =
     currentTheme?.radiused || !currentTheme ? (2.5 * fields?.length) / 3 : 0;
-  idealSize = `calc(${idealSize} + ${geometryBuffer}rem)`;
+  TOTAL_HEIGHT += geometryBuffer * 16;
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
-  const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
+  const dynamicHeight = isMobile ? `min(${TOTAL_HEIGHT}px, 95vh)` : `${TOTAL_HEIGHT}px`;
+  const dynamicWidth = `min(${TOTAL_HEIGHT}px, 95vw, 95vh)`;
   const isCentered = fields?.length <= 4;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
 
-  const defaultStyle = {
+  const defaultStyle = !currentTheme ? {
     ...(!currentTheme && { background: background || 'white' }),
     fontFamily: 'Geist, sans-serif',
     borderRadius: '2rem'
-  };
-  const activeStyle = style || defaultStyle;
+  }: {};
+  let activeStyle = style || defaultStyle;
+  activeStyle = {...activeStyle, ...((fields?.length > 7 && currentTheme?.radiused) && {borderRadius: '47%'})};
   const modalStyles = {
     height: dynamicHeight,
     width: dynamicWidth,
@@ -318,7 +321,6 @@ function Modal({
           <div
             className={`modal ${serilaizedclassName}`}
             id={Id}
-            ref={modalRef}
             style={modalStyles}
           >
             {currentType.closable && (
