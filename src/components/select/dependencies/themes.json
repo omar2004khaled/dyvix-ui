@@ -14,10 +14,17 @@
     "default-animation": "fade"
   },
   {
-    "theme": "Aurora",
-    "class": "dyvix-select-aurora",
-    "input-class": "dyvix-select-input-aurora",
-    "dropdown-class": "dyvix-select-dropdown-aurora",
-    "default-animation": "aurora"
+    "theme": "Ember",
+    "class": "dyvix-select-ember",
+    "input-class": "dyvix-select-input-ember",
+    "dropdown-class": "dyvix-select-dropdown-ember",
+    "default-animation": "glitch"
+  },
+  {
+    "theme": "Neon",
+    "class": "dyvix-select-neon",
+    "input-class": "dyvix-select-input-neon",
+    "dropdown-class": "dyvix-select-dropdown-neon",
+    "default-animation": "pulse"
   }
 ]
